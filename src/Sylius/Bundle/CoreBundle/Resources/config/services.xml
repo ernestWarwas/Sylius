@@ -336,5 +336,12 @@
         <service id="Sylius\Bundle\CoreBundle\Checker\InForVariantsScopeVariantChecker">
             <tag name="sylius.catalog_promotion.variant_checker" type="for_variants" />
         </service>
+
+        <service
+            id="Sylius\Bundle\CoreBundle\Announcer\BatchedVariantsUpdateAnnouncerInterface"
+            class="Sylius\Bundle\CoreBundle\Announcer\BatchedVariantsUpdateAnnouncer"
+        >
+            <argument type="service" id="sylius.command_bus" />
+        </service>
     </services>
 </container>
