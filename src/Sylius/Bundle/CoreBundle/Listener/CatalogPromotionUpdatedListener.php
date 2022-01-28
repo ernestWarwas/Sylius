@@ -15,34 +15,31 @@ namespace Sylius\Bundle\CoreBundle\Listener;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Bundle\CoreBundle\Processor\AllCatalogPromotionsProcessorInterface;
+use Sylius\Bundle\CoreBundle\Processor\CatalogPromotionStateProcessorInterface;
 use Sylius\Component\Promotion\Event\CatalogPromotionUpdated;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 final class CatalogPromotionUpdatedListener
 {
-    private AllCatalogPromotionsProcessorInterface $catalogPromotionsProcessor;
-
-    private RepositoryInterface $catalogPromotionRepository;
-
-    private EntityManagerInterface $entityManager;
-
     public function __construct(
-        AllCatalogPromotionsProcessorInterface $catalogPromotionsProcessor,
-        RepositoryInterface $catalogPromotionRepository,
-        EntityManagerInterface $entityManager
+        private AllCatalogPromotionsProcessorInterface $catalogPromotionsProcessor,
+        private CatalogPromotionStateProcessorInterface $catalogPromotionStateProcessor,
+        private RepositoryInterface $catalogPromotionRepository,
+        private EntityManagerInterface $entityManager
     ) {
-        $this->catalogPromotionsProcessor = $catalogPromotionsProcessor;
-        $this->catalogPromotionRepository = $catalogPromotionRepository;
-        $this->entityManager = $entityManager;
     }
 
     public function __invoke(CatalogPromotionUpdated $event): void
     {
-        if (null === $this->catalogPromotionRepository->findOneBy(['code' => $event->code])) {
+        $catalogPromotion = $this->catalogPromotionRepository->findOneBy(['code' => $event->code]);
+
+        if (null === $catalogPromotion) {
             return;
         }
 
         $this->catalogPromotionsProcessor->process();
+
+        $this->catalogPromotionStateProcessor->process($catalogPromotion);
 
         $this->entityManager->flush();
     }
