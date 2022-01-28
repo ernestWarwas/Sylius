@@ -16,30 +16,21 @@ namespace Sylius\Bundle\CoreBundle\Listener;
 use Doctrine\ORM\EntityManagerInterface;
 use SM\Factory\FactoryInterface;
 use Sylius\Bundle\CoreBundle\Processor\AllCatalogPromotionsProcessorInterface;
+use Sylius\Bundle\CoreBundle\Processor\CatalogPromotionStateProcessorInterface;
 use Sylius\Component\Promotion\Event\CatalogPromotionEnded;
 use Sylius\Component\Promotion\Model\CatalogPromotionTransitions;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 final class CatalogPromotionEndedListener
 {
-    private AllCatalogPromotionsProcessorInterface $catalogPromotionsProcessor;
-
-    private RepositoryInterface $catalogPromotionRepository;
-
-    private EntityManagerInterface $entityManager;
-
-    private FactoryInterface $stateMachine;
 
     public function __construct(
-        AllCatalogPromotionsProcessorInterface $catalogPromotionsProcessor,
-        RepositoryInterface $catalogPromotionRepository,
-        EntityManagerInterface $entityManager,
-        FactoryInterface $stateMachine
+        private AllCatalogPromotionsProcessorInterface $catalogPromotionsProcessor,
+        private CatalogPromotionStateProcessorInterface $catalogPromotionStateProcessor,
+        private RepositoryInterface $catalogPromotionRepository,
+        private EntityManagerInterface $entityManager,
+        private FactoryInterface $stateMachine
     ) {
-        $this->catalogPromotionsProcessor = $catalogPromotionsProcessor;
-        $this->catalogPromotionRepository = $catalogPromotionRepository;
-        $this->entityManager = $entityManager;
-        $this->stateMachine = $stateMachine;
     }
 
     public function __invoke(CatalogPromotionEnded $event): void
@@ -50,10 +41,7 @@ final class CatalogPromotionEndedListener
             return;
         }
 
-        $stateMachine = $this->stateMachine->get($catalogPromotion, CatalogPromotionTransitions::GRAPH);
-
-        $stateMachine->apply(CatalogPromotionTransitions::TRANSITION_PROCESS);
-        $stateMachine->apply(CatalogPromotionTransitions::TRANSITION_DEACTIVATE);
+        $this->catalogPromotionStateProcessor->process($catalogPromotion);
 
         $this->catalogPromotionsProcessor->process();
 
