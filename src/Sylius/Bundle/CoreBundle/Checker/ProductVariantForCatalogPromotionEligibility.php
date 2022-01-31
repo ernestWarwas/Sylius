@@ -17,6 +17,7 @@ use Sylius\Bundle\CoreBundle\Provider\ForVariantInCatalogPromotionScopeCheckerPr
 use Sylius\Component\Core\Model\CatalogPromotionInterface;
 use Sylius\Component\Core\Model\ProductVariantInterface;
 use Sylius\Component\Core\Model\CatalogPromotionScopeInterface;
+use Sylius\Component\Promotion\Model\CatalogPromotionStates;
 
 final class ProductVariantForCatalogPromotionEligibility implements ProductVariantForCatalogPromotionEligibilityInterface
 {

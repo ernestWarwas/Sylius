@@ -27,6 +27,7 @@
             id="Sylius\Bundle\CoreBundle\Processor\CatalogPromotionStateProcessorInterface"
             class="Sylius\Bundle\CoreBundle\Processor\CatalogPromotionStateProcessor"
         >
+            <argument type="service" id="Sylius\Bundle\CoreBundle\Checker\CatalogPromotionEligibilityChecker" />
             <argument type="service" id="SM\Factory\Factory" />
         </service>
 
