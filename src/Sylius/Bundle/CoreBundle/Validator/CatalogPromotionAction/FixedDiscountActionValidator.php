@@ -54,6 +54,10 @@ final class FixedDiscountActionValidator implements ActionValidatorInterface
         }
 
         foreach ($configuration as $channelCode => $channelConfiguration) {
+            if (!is_array($channelConfiguration)) {
+                return;
+            }
+
             if (null === $this->channelRepository->findOneBy(['code' => $channelCode])) {
                 $context->buildViolation('sylius.catalog_promotion_action.fixed_discount.invalid_channel')->atPath('configuration')->addViolation();
 
