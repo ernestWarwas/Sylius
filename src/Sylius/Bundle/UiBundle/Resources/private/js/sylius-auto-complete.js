@@ -25,6 +25,12 @@ $.fn.extend({
           search: 250,
         },
         forceSelection: false,
+        placeholder: true,
+        onChange: (val, text) => {
+          if (text === String.fromCharCode(160)) {
+            element.dropdown('clear');
+          }
+        },
         apiSettings: {
           dataType: 'JSON',
           cache: false,
@@ -42,7 +48,7 @@ $.fn.extend({
 
             results.unshift({
               name: '&nbsp;',
-              value: '',
+              value: '&nbsp;',
             });
 
             return {
