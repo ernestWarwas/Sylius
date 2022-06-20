@@ -26,7 +26,7 @@ final class ChannelAwareItemDataProviderSpec extends ObjectBehavior
     function it_adds_channel_to_the_context_if_not_there_yet(
         ItemDataProviderInterface $itemDataProvider,
         ChannelContextInterface $channelContext,
-        ChannelInterface $channel
+        ChannelInterface $channel,
     ): void {
         $channelContext->getChannel()->willReturn($channel);
 
@@ -37,7 +37,7 @@ final class ChannelAwareItemDataProviderSpec extends ObjectBehavior
 
     function it_does_not_add_channel_to_the_context_silently_if_it_could_not_be_found(
         ItemDataProviderInterface $itemDataProvider,
-        ChannelContextInterface $channelContext
+        ChannelContextInterface $channelContext,
     ): void {
         $channelContext->getChannel()->willThrow(ChannelNotFoundException::class);
 
@@ -49,7 +49,7 @@ final class ChannelAwareItemDataProviderSpec extends ObjectBehavior
     function it_does_not_add_channel_to_the_context_if_it_is_already_added(
         ItemDataProviderInterface $itemDataProvider,
         ChannelContextInterface $channelContext,
-        ChannelInterface $channel
+        ChannelInterface $channel,
     ): void {
         $channelContext->getChannel()->shouldNotBeCalled();
 

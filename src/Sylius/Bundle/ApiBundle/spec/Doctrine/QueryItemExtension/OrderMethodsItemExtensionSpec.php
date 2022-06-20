@@ -37,7 +37,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         UserContextInterface $userContext,
         QueryBuilder $queryBuilder,
         QueryNameGeneratorInterface $queryNameGenerator,
-        Expr $expr
+        Expr $expr,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -58,7 +58,8 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         $queryBuilder
             ->expr()
             ->shouldBeCalled()
-            ->willReturn($expr);
+            ->willReturn($expr)
+        ;
 
         $expr
             ->orX('user IS NULL', sprintf('%s.customer IS NULL', 'o'))
@@ -98,7 +99,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         UserContextInterface $userContext,
         QueryBuilder $queryBuilder,
         QueryNameGeneratorInterface $queryNameGenerator,
-        Expr $expr
+        Expr $expr,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -119,7 +120,8 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         $queryBuilder
             ->expr()
             ->shouldBeCalled()
-            ->willReturn($expr);
+            ->willReturn($expr)
+        ;
 
         $expr
             ->orX('user IS NULL', sprintf('%s.customer IS NULL', 'o'))
@@ -159,7 +161,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         UserContextInterface $userContext,
         QueryBuilder $queryBuilder,
         QueryNameGeneratorInterface $queryNameGenerator,
-        Expr $expr
+        Expr $expr,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -180,7 +182,8 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         $queryBuilder
             ->expr()
             ->shouldBeCalled()
-            ->willReturn($expr);
+            ->willReturn($expr)
+        ;
 
         $expr
             ->orX('user IS NULL', sprintf('%s.customer IS NULL', 'o'))
@@ -221,7 +224,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         QueryBuilder $queryBuilder,
         ShopUserInterface $shopUser,
         CustomerInterface $customer,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -270,7 +273,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         QueryBuilder $queryBuilder,
         ShopUserInterface $shopUser,
         CustomerInterface $customer,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -307,7 +310,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         QueryBuilder $queryBuilder,
         ShopUserInterface $shopUser,
         CustomerInterface $customer,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -343,7 +346,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         UserContextInterface $userContext,
         QueryBuilder $queryBuilder,
         QueryNameGeneratorInterface $queryNameGenerator,
-        Expr $expr
+        Expr $expr,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -389,7 +392,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         QueryBuilder $queryBuilder,
         ShopUserInterface $shopUser,
         CustomerInterface $customer,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -437,7 +440,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         QueryBuilder $queryBuilder,
         ShopUserInterface $shopUser,
         CustomerInterface $customer,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -486,7 +489,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         QueryBuilder $queryBuilder,
         ShopUserInterface $shopUser,
         CustomerInterface $customer,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -535,7 +538,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         QueryBuilder $queryBuilder,
         ShopUserInterface $shopUser,
         CustomerInterface $customer,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -584,7 +587,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         QueryBuilder $queryBuilder,
         ShopUserInterface $shopUser,
         CustomerInterface $customer,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -633,7 +636,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         QueryBuilder $queryBuilder,
         ShopUserInterface $shopUser,
         CustomerInterface $customer,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -654,7 +657,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
                     ['tokenValue' => 'xaza-tt_fee'],
                     Request::METHOD_DELETE,
                     [ContextKeys::HTTP_REQUEST_METHOD_TYPE => Request::METHOD_POST],
-                ]
+                ],
             )
         ;
     }
@@ -663,7 +666,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         UserContextInterface $userContext,
         QueryBuilder $queryBuilder,
         AdminUserInterface $adminUser,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -697,7 +700,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         UserContextInterface $userContext,
         QueryBuilder $queryBuilder,
         AdminUserInterface $adminUser,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -719,7 +722,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         UserContextInterface $userContext,
         QueryBuilder $queryBuilder,
         AdminUserInterface $adminUser,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -741,7 +744,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
         UserContextInterface $userContext,
         QueryBuilder $queryBuilder,
         AdminUserInterface $adminUser,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $queryBuilder->getRootAliases()->willReturn(['o']);
 
@@ -759,7 +762,7 @@ final class OrderMethodsItemExtensionSpec extends ObjectBehavior
                     ['tokenValue' => 'xaza-tt_fee'],
                     Request::METHOD_DELETE,
                     [ContextKeys::HTTP_REQUEST_METHOD_TYPE => Request::METHOD_DELETE],
-                ]
+                ],
             )
         ;
     }

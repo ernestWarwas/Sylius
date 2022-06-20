@@ -33,7 +33,7 @@ final class AcceptedProductReviewsExtension implements ContextAwareQueryCollecti
         QueryNameGeneratorInterface $queryNameGenerator,
         string $resourceClass,
         string $operationName = null,
-        array $context = []
+        array $context = [],
     ): void {
         if ($this->productReviewClass !== $resourceClass) {
             return;

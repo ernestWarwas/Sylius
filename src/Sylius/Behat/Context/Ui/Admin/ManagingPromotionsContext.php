@@ -48,7 +48,7 @@ final class ManagingPromotionsContext implements Context
         CreatePageInterface $createPage,
         UpdatePageInterface $updatePage,
         CurrentPageResolverInterface $currentPageResolver,
-        NotificationCheckerInterface $notificationChecker
+        NotificationCheckerInterface $notificationChecker,
     ) {
         $this->sharedStorage = $sharedStorage;
         $this->indexPage = $indexPage;
@@ -155,7 +155,7 @@ final class ManagingPromotionsContext implements Context
         $firstAmount,
         $firstChannelName,
         $secondAmount,
-        $secondChannelName
+        $secondChannelName,
     ) {
         $this->createPage->addRule('Item total');
         $this->createPage->fillRuleOptionForChannel($firstChannelName, 'Amount', $firstAmount);
@@ -218,7 +218,7 @@ final class ManagingPromotionsContext implements Context
     public function iAddTheActionConfiguredWithAPercentageValueForChannel(
         string $actionType,
         string $percentage = null,
-        string $channelName
+        string $channelName,
     ): void {
         $this->createPage->addAction($actionType);
         $this->createPage->fillActionOptionForChannel($channelName, 'Percentage', $percentage);
@@ -464,7 +464,7 @@ final class ManagingPromotionsContext implements Context
     {
         $this->notificationChecker->checkNotification(
             'Cannot delete, the promotion is in use.',
-            NotificationType::failure()
+            NotificationType::failure(),
         );
     }
 
@@ -510,7 +510,7 @@ final class ManagingPromotionsContext implements Context
     {
         Assert::same(
             $this->createPage->getValidationMessageForAction(),
-            'This value should not be blank.'
+            'This value should not be blank.',
         );
     }
 
@@ -522,7 +522,7 @@ final class ManagingPromotionsContext implements Context
     {
         Assert::same(
             $this->createPage->getValidationMessageForAction(),
-            'The percentage discount must be between 0% and 100%.'
+            'The percentage discount must be between 0% and 100%.',
         );
     }
 
@@ -535,7 +535,7 @@ final class ManagingPromotionsContext implements Context
         Assert::same(
             (int) $usage,
             $this->indexPage->getUsageNumber($promotion),
-            'Promotion should be used %s times, but is %2$s.'
+            'Promotion should be used %s times, but is %2$s.',
         );
     }
 
@@ -566,7 +566,7 @@ final class ManagingPromotionsContext implements Context
         Assert::same(
             (int) $count,
             $actualCount,
-            'There should be %s promotion, but there\'s %2$s.'
+            'There should be %s promotion, but there\'s %2$s.',
         );
     }
 
@@ -581,7 +581,7 @@ final class ManagingPromotionsContext implements Context
         Assert::same(
             $actualValue,
             $value,
-            sprintf('Expected first promotion\'s %s to be "%s", but it is "%s".', $field, $value, $actualValue)
+            sprintf('Expected first promotion\'s %s to be "%s", but it is "%s".', $field, $value, $actualValue),
         );
     }
 
@@ -596,7 +596,7 @@ final class ManagingPromotionsContext implements Context
         Assert::same(
             $actualValue,
             $value,
-            sprintf('Expected last promotion\'s %s to be "%s", but it is "%s".', $field, $value, $actualValue)
+            sprintf('Expected last promotion\'s %s to be "%s", but it is "%s".', $field, $value, $actualValue),
         );
     }
 

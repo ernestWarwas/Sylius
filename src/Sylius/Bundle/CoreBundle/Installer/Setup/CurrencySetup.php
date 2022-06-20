@@ -64,7 +64,7 @@ final class CurrencySetup implements CurrencySetupInterface
 
         while (null === $name) {
             $output->writeln(
-                sprintf('<comment>Currency with code <info>%s</info> could not be resolved.</comment>', $code)
+                sprintf('<comment>Currency with code <info>%s</info> could not be resolved.</comment>', $code),
             );
 
             $code = $this->getNewCurrencyCode($input, $output, $questionHelper);

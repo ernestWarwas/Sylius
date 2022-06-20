@@ -32,7 +32,7 @@ final class CustomerAndChannelBasedCartContext implements CartContextInterface
     public function __construct(
         CustomerContextInterface $customerContext,
         ChannelContextInterface $channelContext,
-        OrderRepositoryInterface $orderRepository
+        OrderRepositoryInterface $orderRepository,
     ) {
         $this->customerContext = $customerContext;
         $this->channelContext = $channelContext;

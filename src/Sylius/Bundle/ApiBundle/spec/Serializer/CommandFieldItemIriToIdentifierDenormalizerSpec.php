@@ -29,24 +29,24 @@ final class CommandFieldItemIriToIdentifierDenormalizerSpec extends ObjectBehavi
         DenormalizerInterface $objectNormalizer,
         ItemIriToIdentifierConverterInterface $itemIriToIdentifierConverter,
         CommandItemIriArgumentToIdentifierMapInterface $commandItemIriArgumentToIdentifierMap,
-        UserContextInterface $userContext
+        UserContextInterface $userContext,
     ): void {
         $commandAwareInputDataTransformer = new CommandAwareInputDataTransformer(
             new LoggedInShopUserEmailAwareCommandDataTransformer(
-                $userContext->getWrappedObject()
-            )
+                $userContext->getWrappedObject(),
+            ),
         );
 
         $this->beConstructedWith(
             $objectNormalizer,
             $itemIriToIdentifierConverter,
             $commandAwareInputDataTransformer,
-            $commandItemIriArgumentToIdentifierMap
+            $commandItemIriArgumentToIdentifierMap,
         );
     }
 
     function it_supports_denormalization_add_product_review(
-        CommandItemIriArgumentToIdentifierMapInterface $commandItemIriArgumentToIdentifierMap
+        CommandItemIriArgumentToIdentifierMapInterface $commandItemIriArgumentToIdentifierMap,
     ): void {
         $context['input']['class'] = AddProductReview::class;
 
@@ -57,14 +57,14 @@ final class CommandFieldItemIriToIdentifierDenormalizerSpec extends ObjectBehavi
                 new AddProductReview('Cap', 5, 'ok', 'cap_code', 'john@example.com'),
                 AddProductReview::class,
                 null,
-                $context
+                $context,
             )
             ->shouldReturn(true)
         ;
     }
 
     function it_does_not_support_denormalization_for_not_supported_class(
-        CommandItemIriArgumentToIdentifierMapInterface $commandItemIriArgumentToIdentifierMap
+        CommandItemIriArgumentToIdentifierMapInterface $commandItemIriArgumentToIdentifierMap,
     ): void {
         $context['input']['class'] = Order::class;
 
@@ -75,7 +75,7 @@ final class CommandFieldItemIriToIdentifierDenormalizerSpec extends ObjectBehavi
                 new Order(),
                 AddProductReview::class,
                 null,
-                $context
+                $context,
             )
             ->shouldReturn(false)
         ;
@@ -85,7 +85,7 @@ final class CommandFieldItemIriToIdentifierDenormalizerSpec extends ObjectBehavi
         DenormalizerInterface $objectNormalizer,
         ItemIriToIdentifierConverterInterface $itemIriToIdentifierConverter,
         CommandItemIriArgumentToIdentifierMapInterface $commandItemIriArgumentToIdentifierMap,
-        UserContextInterface $userContext
+        UserContextInterface $userContext,
     ): void {
         $context['input']['class'] = AddProductReview::class;
 
@@ -107,7 +107,7 @@ final class CommandFieldItemIriToIdentifierDenormalizerSpec extends ObjectBehavi
             ],
                 AddProductReview::class,
                 null,
-                $context
+                $context,
             )
             ->willReturn($addProductReview)
         ;
@@ -123,7 +123,7 @@ final class CommandFieldItemIriToIdentifierDenormalizerSpec extends ObjectBehavi
             ],
                 AddProductReview::class,
                 null,
-                $context
+                $context,
             )
             ->shouldReturn($addProductReview)
         ;

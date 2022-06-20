@@ -27,7 +27,7 @@ class OrderItemQuantityDataMapper implements DataMapperInterface
 
     public function __construct(
         OrderItemQuantityModifierInterface $orderItemQuantityModifier,
-        DataMapperInterface $propertyPathDataMapper
+        DataMapperInterface $propertyPathDataMapper,
     ) {
         $this->orderItemQuantityModifier = $orderItemQuantityModifier;
         $this->propertyPathDataMapper = $propertyPathDataMapper;

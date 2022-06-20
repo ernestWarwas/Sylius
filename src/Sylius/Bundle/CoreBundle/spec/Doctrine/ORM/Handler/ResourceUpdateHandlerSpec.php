@@ -37,7 +37,7 @@ final class ResourceUpdateHandlerSpec extends ObjectBehavior
         ResourceUpdateHandlerInterface $decoratedUpdater,
         ResourceInterface $resource,
         RequestConfiguration $configuration,
-        ObjectManager $manager
+        ObjectManager $manager,
     ): void {
         $decoratedUpdater->handle($resource, $configuration, $manager);
 
@@ -48,7 +48,7 @@ final class ResourceUpdateHandlerSpec extends ObjectBehavior
         ResourceUpdateHandlerInterface $decoratedUpdater,
         ResourceInterface $resource,
         RequestConfiguration $configuration,
-        ObjectManager $manager
+        ObjectManager $manager,
     ): void {
         $decoratedUpdater
             ->handle($resource, $configuration, $manager)

@@ -17,7 +17,6 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Uri;
 use Http\Message\MessageFactory;
-use Psr\Http\Message\UriInterface;
 use Sylius\Bundle\CoreBundle\Application\Kernel;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,7 +35,7 @@ final class NotificationController
         ClientInterface $client,
         MessageFactory $messageFactory,
         string $hubUri,
-        string $environment
+        string $environment,
     ) {
         $this->client = $client;
         $this->messageFactory = $messageFactory;
@@ -60,7 +59,7 @@ final class NotificationController
             Request::METHOD_GET,
             $this->hubUri,
             $headers,
-            json_encode($content)
+            json_encode($content),
         );
 
         try {

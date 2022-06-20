@@ -21,6 +21,6 @@ interface CartShippingMethodFactoryInterface
 {
     public function create(
         ShippingMethodInterface $shippingMethod,
-        int $cost
+        int $cost,
     ): CartShippingMethodInterface;
 }

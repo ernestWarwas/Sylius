@@ -27,7 +27,7 @@ final class ProductVariantNormalizerSpec extends ObjectBehavior
     function let(
         ProductVariantPricesCalculatorInterface $pricesCalculator,
         ChannelContextInterface $channelContext,
-        AvailabilityCheckerInterface $availabilityChecker
+        AvailabilityCheckerInterface $availabilityChecker,
     ): void {
         $this->beConstructedWith($pricesCalculator, $channelContext, $availabilityChecker);
     }
@@ -57,7 +57,7 @@ final class ProductVariantNormalizerSpec extends ObjectBehavior
         AvailabilityCheckerInterface $availabilityChecker,
         NormalizerInterface $normalizer,
         ChannelInterface $channel,
-        ProductVariantInterface $variant
+        ProductVariantInterface $variant,
     ): void {
         $this->setNormalizer($normalizer);
 
@@ -72,7 +72,7 @@ final class ProductVariantNormalizerSpec extends ObjectBehavior
 
     function it_throws_an_exception_if_the_normalizer_has_been_already_called(
         NormalizerInterface $normalizer,
-        ProductVariantInterface $variant
+        ProductVariantInterface $variant,
     ): void {
         $this->setNormalizer($normalizer);
 

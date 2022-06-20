@@ -189,7 +189,7 @@ final class ProductVariantSpec extends ObjectBehavior
 
     function it_has_channel_pricings_collection(
         ChannelPricingInterface $firstChannelPricing,
-        ChannelPricingInterface $secondChannelPricing
+        ChannelPricingInterface $secondChannelPricing,
     ): void {
         $firstChannelPricing->getChannelCode()->willReturn('WEB');
         $secondChannelPricing->getChannelCode()->willReturn('MOB');
@@ -209,7 +209,7 @@ final class ProductVariantSpec extends ObjectBehavior
     function it_checks_if_contains_channel_pricing_for_given_channel(
         ChannelInterface $firstChannel,
         ChannelInterface $secondChannel,
-        ChannelPricingInterface $firstChannelPricing
+        ChannelPricingInterface $firstChannelPricing,
     ): void {
         $firstChannelPricing->getChannelCode()->willReturn('WEB');
         $firstChannel->getCode()->willReturn('WEB');
@@ -226,7 +226,7 @@ final class ProductVariantSpec extends ObjectBehavior
 
     function it_returns_channel_pricing_for_given_channel(
         ChannelInterface $channel,
-        ChannelPricingInterface $channelPricing
+        ChannelPricingInterface $channelPricing,
     ): void {
         $channelPricing->getChannelCode()->willReturn('WEB');
         $channel->getCode()->willReturn('WEB');

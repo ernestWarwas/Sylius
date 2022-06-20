@@ -30,7 +30,7 @@ final class ShippingChargesProcessor implements OrderProcessorInterface
 
     public function __construct(
         FactoryInterface $adjustmentFactory,
-        DelegatingCalculatorInterface $shippingChargesCalculator
+        DelegatingCalculatorInterface $shippingChargesCalculator,
     ) {
         $this->adjustmentFactory = $adjustmentFactory;
         $this->shippingChargesCalculator = $shippingChargesCalculator;

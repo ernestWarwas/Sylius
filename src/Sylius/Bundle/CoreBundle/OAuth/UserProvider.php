@@ -56,7 +56,7 @@ class UserProvider extends BaseUserProvider implements AccountConnectorInterface
         RepositoryInterface $oauthRepository,
         ObjectManager $userManager,
         CanonicalizerInterface $canonicalizer,
-        CustomerRepositoryInterface $customerRepository
+        CustomerRepositoryInterface $customerRepository,
     ) {
         parent::__construct($supportedUserClass, $userRepository, $canonicalizer);
 

@@ -36,7 +36,7 @@ final class TemplateBlock
         ?string $template,
         ?array $context,
         ?int $priority,
-        ?bool $enabled
+        ?bool $enabled,
     ) {
         $this->name = $name;
         $this->eventName = $eventName;
@@ -62,7 +62,7 @@ final class TemplateBlock
             throw new \DomainException(sprintf(
                 'There is no template defined for block "%s" in event "%s".',
                 $this->name,
-                $this->eventName
+                $this->eventName,
             ));
         }
 
@@ -90,7 +90,7 @@ final class TemplateBlock
             throw new \DomainException(sprintf(
                 'Trying to overwrite block "%s" with block "%s".',
                 $this->name,
-                $block->name
+                $block->name,
             ));
         }
 
@@ -100,7 +100,7 @@ final class TemplateBlock
             $block->template ?? $this->template,
             $block->context ?? $this->context,
             $block->priority ?? $this->priority,
-            $block->enabled ?? $this->enabled
+            $block->enabled ?? $this->enabled,
         );
     }
 }

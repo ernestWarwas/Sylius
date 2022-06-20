@@ -35,7 +35,7 @@ final class ApiCartBlamerListener
     public function __construct(
         CartContextInterface $cartContext,
         SectionProviderInterface $uriBasedSectionContext,
-        MessageBusInterface $commandBus
+        MessageBusInterface $commandBus,
     ) {
         $this->cartContext = $cartContext;
         $this->uriBasedSectionContext = $uriBasedSectionContext;

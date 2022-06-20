@@ -28,7 +28,7 @@ final class ShipmentStateMachineTransitionApplicator implements ShipmentStateMac
 
     public function __construct(
         StateMachineFactoryInterface $stateMachineFactory,
-        EventDispatcherInterface $eventDispatcher
+        EventDispatcherInterface $eventDispatcher,
     ) {
         $this->stateMachineFactory = $stateMachineFactory;
         $this->eventDispatcher = $eventDispatcher;

@@ -35,7 +35,7 @@ final class CartPaymentMethodsSubresourceDataProvider implements RestrictedDataP
     public function __construct(
         OrderRepositoryInterface $orderRepository,
         PaymentRepositoryInterface $paymentRepository,
-        PaymentMethodsResolverInterface $paymentMethodsResolver
+        PaymentMethodsResolverInterface $paymentMethodsResolver,
     ) {
         $this->orderRepository = $orderRepository;
         $this->paymentRepository = $paymentRepository;

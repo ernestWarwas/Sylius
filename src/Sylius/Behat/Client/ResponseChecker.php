@@ -215,8 +215,8 @@ final class ResponseChecker implements ResponseCheckerInterface
             $content,
             SprintfResponseEscaper::provideMessageWithEscapedResponseContent(
                 'Content could not be parsed to array.',
-                $response
-            )
+                $response,
+            ),
         );
 
         Assert::keyExists($content, $key, sprintf('Expected key "%s" not found. Received response: %s', $key, $response->getContent()));

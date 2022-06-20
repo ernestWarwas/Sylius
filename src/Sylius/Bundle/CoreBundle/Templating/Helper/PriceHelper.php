@@ -51,7 +51,8 @@ class PriceHelper extends Helper
 
         return $this
             ->productVariantPriceCalculator
-            ->calculateOriginal($productVariant, $context);
+            ->calculateOriginal($productVariant, $context)
+        ;
     }
 
     /**

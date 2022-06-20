@@ -35,7 +35,7 @@ class OrderShipmentTaxesApplicator implements OrderTaxesApplicatorInterface
     public function __construct(
         CalculatorInterface $calculator,
         AdjustmentFactoryInterface $adjustmentFactory,
-        TaxRateResolverInterface $taxRateResolver
+        TaxRateResolverInterface $taxRateResolver,
     ) {
         $this->calculator = $calculator;
         $this->adjustmentFactory = $adjustmentFactory;
@@ -74,7 +74,7 @@ class OrderShipmentTaxesApplicator implements OrderTaxesApplicatorInterface
         ShipmentInterface $shipment,
         int $taxAmount,
         TaxRateInterface $taxRate,
-        ShippingMethodInterface $shippingMethod
+        ShippingMethodInterface $shippingMethod,
     ): void {
         $shipment->addAdjustment($this->adjustmentFactory->createWithData(
             AdjustmentInterface::TAX_ADJUSTMENT,
@@ -87,7 +87,7 @@ class OrderShipmentTaxesApplicator implements OrderTaxesApplicatorInterface
                 'taxRateCode' => $taxRate->getCode(),
                 'taxRateName' => $taxRate->getName(),
                 'taxRateAmount' => $taxRate->getAmount(),
-            ]
+            ],
         ));
     }
 

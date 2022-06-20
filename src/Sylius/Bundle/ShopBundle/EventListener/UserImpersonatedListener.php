@@ -33,7 +33,7 @@ final class UserImpersonatedListener
     public function __construct(
         CartStorageInterface $cartStorage,
         ChannelContextInterface $channelContext,
-        OrderRepositoryInterface $orderRepository
+        OrderRepositoryInterface $orderRepository,
     ) {
         $this->cartStorage = $cartStorage;
         $this->channelContext = $channelContext;

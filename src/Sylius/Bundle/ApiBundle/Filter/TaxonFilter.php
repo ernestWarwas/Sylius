@@ -38,7 +38,7 @@ final class TaxonFilter extends AbstractContextAwareFilter
         QueryNameGeneratorInterface $queryNameGenerator,
         string $resourceClass,
         string $operationName = null,
-        array $context = []
+        array $context = [],
     ) {
         if ($property !== 'taxon') {
             return;

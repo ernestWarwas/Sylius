@@ -53,7 +53,7 @@ final class CorrectOrderAddressValidator extends ConstraintValidator
 
         if ($countryCode === null) {
             $this->context->addViolation(
-                $constraint->addressWithoutCountryCodeCanNotExistMessage
+                $constraint->addressWithoutCountryCodeCanNotExistMessage,
             );
 
             return;
@@ -65,7 +65,7 @@ final class CorrectOrderAddressValidator extends ConstraintValidator
         if ($country === null) {
             $this->context->addViolation(
                 $constraint->countryCodeNotExistMessage,
-                ['%countryCode%' => $countryCode]
+                ['%countryCode%' => $countryCode],
             );
         }
     }

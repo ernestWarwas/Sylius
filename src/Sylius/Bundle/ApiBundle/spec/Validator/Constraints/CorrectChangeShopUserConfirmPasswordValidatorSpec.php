@@ -41,7 +41,7 @@ final class CorrectChangeShopUserConfirmPasswordValidatorSpec extends ObjectBeha
 
     function it_adds_violation_if_passwords_are_different(
         ExecutionContextInterface $executionContext,
-        ConstraintViolationBuilderInterface $constraintViolationBuilder
+        ConstraintViolationBuilderInterface $constraintViolationBuilder,
     ): void {
         $constraint = new CorrectChangeShopUserConfirmPassword();
         $this->initialize($executionContext);

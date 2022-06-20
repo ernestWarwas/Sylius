@@ -34,7 +34,7 @@ final class RequestResetPasswordTokenHandler implements MessageHandlerInterface
     public function __construct(
         UserRepositoryInterface $userRepository,
         MessageBusInterface $eventBus,
-        GeneratorInterface $generator
+        GeneratorInterface $generator,
     ) {
         $this->userRepository = $userRepository;
         $this->commandBus = $eventBus;
@@ -53,9 +53,9 @@ final class RequestResetPasswordTokenHandler implements MessageHandlerInterface
             new SendResetPasswordEmail(
                 $command->getEmail(),
                 $command->getChannelCode(),
-                $command->getLocaleCode()
+                $command->getLocaleCode(),
             ),
-            [new DispatchAfterCurrentBusStamp()]
+            [new DispatchAfterCurrentBusStamp()],
         );
     }
 }

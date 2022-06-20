@@ -37,7 +37,7 @@ use Sylius\Component\Locale\Context\LocaleContextInterface;
         ChannelContextInterface $channelContext,
         CurrencyContextInterface $currencyContext,
         LocaleContextInterface $localeContext,
-        CustomerContextInterface $customerContext
+        CustomerContextInterface $customerContext,
     ) {
         $this->channelContext = $channelContext;
         $this->currencyContext = $currencyContext;

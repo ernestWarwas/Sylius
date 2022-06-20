@@ -31,7 +31,7 @@ final class FakeChannelContext implements ChannelContextInterface
     public function __construct(
         FakeChannelCodeProviderInterface $fakeChannelCodeProvider,
         ChannelRepositoryInterface $channelRepository,
-        RequestStack $requestStack
+        RequestStack $requestStack,
     ) {
         $this->fakeChannelCodeProvider = $fakeChannelCodeProvider;
         $this->channelRepository = $channelRepository;

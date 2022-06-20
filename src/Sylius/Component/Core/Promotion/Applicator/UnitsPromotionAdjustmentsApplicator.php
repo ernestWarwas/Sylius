@@ -31,7 +31,7 @@ final class UnitsPromotionAdjustmentsApplicator implements UnitsPromotionAdjustm
 
     public function __construct(
         AdjustmentFactoryInterface $adjustmentFactory,
-        IntegerDistributorInterface $distributor
+        IntegerDistributorInterface $distributor,
     ) {
         $this->adjustmentFactory = $adjustmentFactory;
         $this->distributor = $distributor;
@@ -58,7 +58,7 @@ final class UnitsPromotionAdjustmentsApplicator implements UnitsPromotionAdjustm
     private function applyAdjustmentsOnItemUnits(
         OrderItemInterface $item,
         PromotionInterface $promotion,
-        int $itemPromotionAmount
+        int $itemPromotionAmount,
     ): void {
         $splitPromotionAmount = $this->distributor->distribute($itemPromotionAmount, $item->getQuantity());
 

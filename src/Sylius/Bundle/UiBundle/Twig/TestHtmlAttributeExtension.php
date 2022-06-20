@@ -40,7 +40,7 @@ final class TestHtmlAttributeExtension extends AbstractExtension
 
                     return '';
                 },
-                ['is_safe' => ['html']]
+                ['is_safe' => ['html']],
             ),
         ];
     }

@@ -25,7 +25,7 @@ class DashboardStatisticsProvider implements DashboardStatisticsProviderInterfac
 
     public function __construct(
         OrderRepositoryInterface $orderRepository,
-        CustomerRepositoryInterface $customerRepository
+        CustomerRepositoryInterface $customerRepository,
     ) {
         $this->orderRepository = $orderRepository;
         $this->customerRepository = $customerRepository;
@@ -37,19 +37,19 @@ class DashboardStatisticsProvider implements DashboardStatisticsProviderInterfac
             $this->orderRepository->getTotalPaidSalesForChannel($channel),
             $this->orderRepository->countPaidByChannel($channel),
             $this->customerRepository->countCustomers(),
-            $channel
+            $channel,
         );
     }
 
     public function getStatisticsForChannelInPeriod(
         ChannelInterface $channel,
         \DateTimeInterface $startDate,
-        \DateTimeInterface $endDate
+        \DateTimeInterface $endDate,
     ): DashboardStatistics {
         return new DashboardStatistics(
             $this->orderRepository->getTotalPaidSalesForChannelInPeriod($channel, $startDate, $endDate),
             $this->orderRepository->countPaidForChannelInPeriod($channel, $startDate, $endDate),
-            $this->customerRepository->countCustomersInPeriod($startDate, $endDate)
+            $this->customerRepository->countCustomersInPeriod($startDate, $endDate),
         );
     }
 }

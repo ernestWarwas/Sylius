@@ -34,7 +34,7 @@ final class ChangeItemQuantityInCartHandler implements MessageHandlerInterface
     public function __construct(
         OrderItemRepositoryInterface $orderItemRepository,
         OrderItemQuantityModifierInterface $orderItemQuantityModifier,
-        OrderProcessorInterface $orderProcessor
+        OrderProcessorInterface $orderProcessor,
     ) {
         $this->orderItemRepository = $orderItemRepository;
         $this->orderItemQuantityModifier = $orderItemQuantityModifier;
@@ -46,7 +46,7 @@ final class ChangeItemQuantityInCartHandler implements MessageHandlerInterface
         /** @var OrderItemInterface|null $orderItem */
         $orderItem = $this->orderItemRepository->findOneByIdAndCartTokenValue(
             $command->orderItemId,
-            $command->orderTokenValue
+            $command->orderTokenValue,
         );
 
         Assert::notNull($orderItem);

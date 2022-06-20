@@ -32,7 +32,7 @@ final class AdminUserDataPersister implements ContextAwareDataPersisterInterface
     public function __construct(
         ContextAwareDataPersisterInterface $decoratedDataPersister,
         TokenStorageInterface $tokenStorage,
-        PasswordUpdaterInterface $passwordUpdater
+        PasswordUpdaterInterface $passwordUpdater,
     ) {
         $this->decoratedDataPersister = $decoratedDataPersister;
         $this->tokenStorage = $tokenStorage;

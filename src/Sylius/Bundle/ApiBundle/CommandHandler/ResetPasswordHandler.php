@@ -33,7 +33,7 @@ final class ResetPasswordHandler implements MessageHandlerInterface
     public function __construct(
         UserRepositoryInterface $userRepository,
         MetadataInterface $metadata,
-        PasswordUpdaterInterface $passwordUpdater
+        PasswordUpdaterInterface $passwordUpdater,
     ) {
         $this->userRepository = $userRepository;
         $this->metadata = $metadata;

@@ -32,7 +32,7 @@ final class ShopUserLogoutHandler extends DefaultLogoutSuccessHandler
         HttpUtils $httpUtils,
         string $targetUrl,
         ChannelContextInterface $channelContext,
-        CartStorageInterface $cartStorage
+        CartStorageInterface $cartStorage,
     ) {
         parent::__construct($httpUtils, $targetUrl);
 

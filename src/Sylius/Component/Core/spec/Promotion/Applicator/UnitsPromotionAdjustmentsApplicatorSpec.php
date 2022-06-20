@@ -29,7 +29,7 @@ final class UnitsPromotionAdjustmentsApplicatorSpec extends ObjectBehavior
 {
     function let(
         AdjustmentFactoryInterface $adjustmentFactory,
-        IntegerDistributorInterface $distributor
+        IntegerDistributorInterface $distributor,
     ): void {
         $this->beConstructedWith($adjustmentFactory, $distributor);
     }
@@ -51,7 +51,7 @@ final class UnitsPromotionAdjustmentsApplicatorSpec extends ObjectBehavior
         OrderItemUnitInterface $firstColtUnit,
         OrderItemUnitInterface $magnumUnit,
         OrderItemUnitInterface $secondColtUnit,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $order->countItems()->willReturn(2);
 
@@ -107,7 +107,7 @@ final class UnitsPromotionAdjustmentsApplicatorSpec extends ObjectBehavior
         OrderItemInterface $magnumItem,
         OrderItemUnitInterface $coltUnit,
         OrderItemUnitInterface $magnumUnit,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $order->countItems()->willReturn(2);
 
@@ -158,7 +158,7 @@ final class UnitsPromotionAdjustmentsApplicatorSpec extends ObjectBehavior
         OrderItemUnitInterface $coltUnit,
         OrderItemUnitInterface $magnumUnit,
         OrderItemUnitInterface $winchesterUnit,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $order->countItems()->willReturn(3);
 
@@ -218,7 +218,7 @@ final class UnitsPromotionAdjustmentsApplicatorSpec extends ObjectBehavior
         OrderItemUnitInterface $firstColtUnit,
         OrderItemUnitInterface $secondColtUnit,
         OrderItemUnitInterface $thirdColtUnit,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $order->countItems()->willReturn(1);
 
@@ -266,7 +266,7 @@ final class UnitsPromotionAdjustmentsApplicatorSpec extends ObjectBehavior
         OrderItemInterface $coltItem,
         OrderItemUnitInterface $firstColtUnit,
         OrderItemUnitInterface $secondColtUnit,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $order->countItems()->willReturn(1);
 
@@ -302,7 +302,7 @@ final class UnitsPromotionAdjustmentsApplicatorSpec extends ObjectBehavior
 
     function it_throws_exception_if_items_count_is_different_than_adjustment_amounts(
         PromotionInterface $promotion,
-        OrderInterface $order
+        OrderInterface $order,
     ): void {
         $order->countItems()->willReturn(2);
 

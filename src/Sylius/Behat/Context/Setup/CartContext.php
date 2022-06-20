@@ -41,7 +41,7 @@ final class CartContext implements Context
         MessageBusInterface $commandBus,
         ProductVariantResolverInterface $productVariantResolver,
         RandomnessGeneratorInterface $generator,
-        SharedStorageInterface $sharedStorage
+        SharedStorageInterface $sharedStorage,
     ) {
         $this->commandBus = $commandBus;
         $this->productVariantResolver = $productVariantResolver;
@@ -89,7 +89,7 @@ final class CartContext implements Context
         $this->commandBus->dispatch(AddItemToCart::createFromData(
             $tokenValue,
             $productVariant->getCode(),
-            1
+            1,
         ));
 
         $this->sharedStorage->set('product', $productVariant->getProduct());
@@ -102,7 +102,7 @@ final class CartContext implements Context
         ProductInterface $product,
         ProductOptionInterface $productOption,
         string $productOptionValue,
-        ?string $tokenValue
+        ?string $tokenValue,
     ): void {
         if ($tokenValue === null) {
             $tokenValue = $this->pickupCart();
@@ -114,10 +114,10 @@ final class CartContext implements Context
                 ->getProductVariantWithProductOptionAndProductOptionValue(
                     $product,
                     $productOption,
-                    $productOptionValue
+                    $productOptionValue,
                 )
                 ->getCode(),
-            1
+            1,
         ));
     }
 
@@ -154,7 +154,7 @@ final class CartContext implements Context
     private function getProductVariantWithProductOptionAndProductOptionValue(
         ProductInterface $product,
         ProductOptionInterface $productOption,
-        string $productOptionValue
+        string $productOptionValue,
     ): ?ProductVariantInterface {
         foreach ($product->getVariants() as $productVariant) {
             /** @var ProductOptionValueInterface $variantProductOptionValue */
@@ -180,7 +180,7 @@ final class CartContext implements Context
         $this->commandBus->dispatch(AddItemToCart::createFromData(
             $tokenValue,
             $this->productVariantResolver->getVariant($product)->getCode(),
-            $quantity
+            $quantity,
         ));
 
         $this->sharedStorage->set('product', $product);

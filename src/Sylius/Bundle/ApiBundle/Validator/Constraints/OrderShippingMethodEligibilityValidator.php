@@ -32,7 +32,7 @@ final class OrderShippingMethodEligibilityValidator extends ConstraintValidator
 
     public function __construct(
         OrderRepositoryInterface $orderRepository,
-        ShippingMethodEligibilityCheckerInterface $eligibilityChecker
+        ShippingMethodEligibilityCheckerInterface $eligibilityChecker,
     ) {
         $this->orderRepository = $orderRepository;
         $this->eligibilityChecker = $eligibilityChecker;
@@ -58,7 +58,7 @@ final class OrderShippingMethodEligibilityValidator extends ConstraintValidator
             if (!$this->eligibilityChecker->isEligible($shipment, $shippingMethod)) {
                 $this->context->addViolation(
                     $constraint->message,
-                    ['%shippingMethodName%' => $shippingMethod->getName()]
+                    ['%shippingMethodName%' => $shippingMethod->getName()],
                 );
             }
         }

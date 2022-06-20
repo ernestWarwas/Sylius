@@ -35,7 +35,7 @@ final class ChosenShippingMethodEligibilityValidator extends ConstraintValidator
     public function __construct(
         ShipmentRepositoryInterface $shipmentRepository,
         ShippingMethodRepositoryInterface $shippingMethodRepository,
-        ShippingMethodsResolverInterface $shippingMethodsResolver
+        ShippingMethodsResolverInterface $shippingMethodsResolver,
     ) {
         $this->shipmentRepository = $shipmentRepository;
         $this->shippingMethodRepository = $shippingMethodRepository;

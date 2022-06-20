@@ -70,7 +70,7 @@ final class DefaultUnitedStatesChannelFactory implements DefaultChannelFactoryIn
         FactoryInterface $currencyFactory,
         FactoryInterface $localeFactory,
         ZoneFactoryInterface $zoneFactory,
-        string $defaultLocaleCode
+        string $defaultLocaleCode,
     ) {
         $this->channelRepository = $channelRepository;
         $this->countryRepository = $countryRepository;

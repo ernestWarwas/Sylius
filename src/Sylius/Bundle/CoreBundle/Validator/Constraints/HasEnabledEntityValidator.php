@@ -85,8 +85,8 @@ final class HasEnabledEntityValidator extends ConstraintValidator
      */
     private function isLastEnabledEntity($result, $entity): bool
     {
-        return !\is_countable($result) || 0 === count($result)
-        || (1 === count($result) && $entity === ($result instanceof \Iterator ? $result->current() : current($result)));
+        return !\is_countable($result) || 0 === count($result) ||
+        (1 === count($result) && $entity === ($result instanceof \Iterator ? $result->current() : current($result)));
     }
 
     /**
@@ -105,8 +105,8 @@ final class HasEnabledEntityValidator extends ConstraintValidator
                 $objectManager,
                 sprintf(
                     'Unable to find the object manager associated with an entity of class "%s".',
-                    get_class($entity)
-                )
+                    get_class($entity),
+                ),
             );
         }
 
@@ -135,7 +135,7 @@ final class HasEnabledEntityValidator extends ConstraintValidator
 
         if (!$class->hasField($enabledPropertyPath) && !$class->hasAssociation($enabledPropertyPath)) {
             throw new ConstraintDefinitionException(
-                sprintf("The field '%s' is not mapped by Doctrine, so it cannot be validated.", $enabledPropertyPath)
+                sprintf("The field '%s' is not mapped by Doctrine, so it cannot be validated.", $enabledPropertyPath),
             );
         }
     }

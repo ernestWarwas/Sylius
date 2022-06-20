@@ -37,7 +37,7 @@ final class CheckoutResolver implements EventSubscriberInterface
         CartContextInterface $cartContext,
         CheckoutStateUrlGeneratorInterface $urlGenerator,
         RequestMatcherInterface $requestMatcher,
-        FactoryInterface $stateMachineFactory
+        FactoryInterface $stateMachineFactory,
     ) {
         $this->cartContext = $cartContext;
         $this->urlGenerator = $urlGenerator;

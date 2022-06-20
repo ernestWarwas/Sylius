@@ -30,28 +30,7 @@ final class LoggedInShopUserEmailAwareCommandDataTransformerSpec extends ObjectB
     function it_adds_email_to_add_product_review_for_logged_in_customer(
         UserContextInterface $userContext,
         ShopUserInterface $shopUser,
-        CustomerInterface $customer
-    ): void {
-        $userContext->getUser()->willReturn($shopUser);
-
-        $shopUser->getCustomer()->willReturn($customer);
-
-        $this->transform(
-            new AddProductReview(
-                'Good stuff',
-                5,
-                'Really good stuff',
-                'winter_cap'
-            ),
-            'Sylius\Component\Core\Model\ProductReview',
-            []
-        );
-    }
-
-    function it_does_not_add_email_to_add_product_review_for_visitor(
-        UserContextInterface $userContext,
-        ShopUserInterface $shopUser,
-        CustomerInterface $customer
+        CustomerInterface $customer,
     ): void {
         $userContext->getUser()->willReturn($shopUser);
 
@@ -63,10 +42,31 @@ final class LoggedInShopUserEmailAwareCommandDataTransformerSpec extends ObjectB
                 5,
                 'Really good stuff',
                 'winter_cap',
-                'john@example.com'
             ),
             'Sylius\Component\Core\Model\ProductReview',
-            []
+            [],
+        );
+    }
+
+    function it_does_not_add_email_to_add_product_review_for_visitor(
+        UserContextInterface $userContext,
+        ShopUserInterface $shopUser,
+        CustomerInterface $customer,
+    ): void {
+        $userContext->getUser()->willReturn($shopUser);
+
+        $shopUser->getCustomer()->willReturn($customer);
+
+        $this->transform(
+            new AddProductReview(
+                'Good stuff',
+                5,
+                'Really good stuff',
+                'winter_cap',
+                'john@example.com',
+            ),
+            'Sylius\Component\Core\Model\ProductReview',
+            [],
         );
     }
 
@@ -77,8 +77,8 @@ final class LoggedInShopUserEmailAwareCommandDataTransformerSpec extends ObjectB
                 'Good stuff',
                 5,
                 'Really good stuff',
-                'winter_cap'
-            )
+                'winter_cap',
+            ),
         )->shouldReturn(true);
     }
 

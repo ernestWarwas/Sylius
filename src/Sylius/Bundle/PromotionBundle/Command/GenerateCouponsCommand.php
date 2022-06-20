@@ -34,7 +34,7 @@ final class GenerateCouponsCommand extends Command
 
     public function __construct(
         PromotionRepositoryInterface $promotionRepository,
-        PromotionCouponGeneratorInterface $couponGenerator
+        PromotionCouponGeneratorInterface $couponGenerator,
     ) {
         parent::__construct();
 
@@ -74,7 +74,7 @@ final class GenerateCouponsCommand extends Command
 
         $instruction = $this->getGeneratorInstructions(
             (int) $input->getArgument('count'),
-            (int) $input->getOption('length')
+            (int) $input->getOption('length'),
         );
 
         try {

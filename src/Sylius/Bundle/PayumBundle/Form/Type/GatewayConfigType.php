@@ -28,7 +28,7 @@ final class GatewayConfigType extends AbstractResourceType
     public function __construct(
         string $dataClass,
         array $validationGroups,
-        FormTypeRegistryInterface $gatewayConfigurationTypeRegistry
+        FormTypeRegistryInterface $gatewayConfigurationTypeRegistry,
     ) {
         parent::__construct($dataClass, $validationGroups);
 

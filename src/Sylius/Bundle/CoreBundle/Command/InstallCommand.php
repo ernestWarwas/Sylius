@@ -77,7 +77,7 @@ EOT
                     'Step %d of %d. <info>%s</info>',
                     $step + 1,
                     count($this->commands),
-                    $command['message']
+                    $command['message'],
                 ));
 
                 $parameters = [];

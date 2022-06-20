@@ -111,7 +111,7 @@ final class OrderItemSpec extends ObjectBehavior
         AdjustmentInterface $unitAdjustment1,
         AdjustmentInterface $unitAdjustment2,
         OrderItemUnitInterface $unit1,
-        OrderItemUnitInterface $unit2
+        OrderItemUnitInterface $unit2,
     ): void {
         $unit1->getOrderItem()->willReturn($this);
         $unit1->getTotal()->willReturn(100);
@@ -161,7 +161,7 @@ final class OrderItemSpec extends ObjectBehavior
 
     function it_recalculates_units_total_on_unit_price_change(
         OrderItemUnitInterface $orderItemUnit1,
-        OrderItemUnitInterface $orderItemUnit2
+        OrderItemUnitInterface $orderItemUnit2,
     ): void {
         $orderItemUnit1->getOrderItem()->willReturn($this->getWrappedObject());
         $orderItemUnit1->getTotal()->willReturn(0, 100);
@@ -202,7 +202,7 @@ final class OrderItemSpec extends ObjectBehavior
 
     function it_has_correct_total_based_on_unit_items(
         OrderItemUnitInterface $orderItemUnit1,
-        OrderItemUnitInterface $orderItemUnit2
+        OrderItemUnitInterface $orderItemUnit2,
     ): void {
         $orderItemUnit1->getOrderItem()->willReturn($this->getWrappedObject());
         $orderItemUnit1->getTotal()->willReturn(1499);
@@ -216,7 +216,7 @@ final class OrderItemSpec extends ObjectBehavior
 
     function it_has_correct_total_after_unit_item_remove(
         OrderItemUnitInterface $orderItemUnit1,
-        OrderItemUnitInterface $orderItemUnit2
+        OrderItemUnitInterface $orderItemUnit2,
     ): void {
         $orderItemUnit1->getOrderItem()->willReturn($this->getWrappedObject());
         $orderItemUnit1->getTotal()->willReturn(2000);
@@ -234,7 +234,7 @@ final class OrderItemSpec extends ObjectBehavior
     function it_has_correct_total_after_negative_adjustment_add(
         AdjustmentInterface $adjustment,
         OrderItemUnitInterface $orderItemUnit1,
-        OrderItemUnitInterface $orderItemUnit2
+        OrderItemUnitInterface $orderItemUnit2,
     ): void {
         $orderItemUnit1->getOrderItem()->willReturn($this->getWrappedObject());
         $orderItemUnit1->getTotal()->willReturn(1499);
@@ -285,7 +285,7 @@ final class OrderItemSpec extends ObjectBehavior
 
     function it_has_0_total_when_adjustment_decreases_total_under_0(
         AdjustmentInterface $adjustment,
-        OrderItemUnitInterface $orderItemUnit1
+        OrderItemUnitInterface $orderItemUnit1,
     ): void {
         $orderItemUnit1->getOrderItem()->willReturn($this->getWrappedObject());
         $orderItemUnit1->getTotal()->willReturn(1499);
@@ -301,7 +301,7 @@ final class OrderItemSpec extends ObjectBehavior
 
     function it_has_correct_total_after_unit_price_change(
         OrderItemUnitInterface $orderItemUnit1,
-        OrderItemUnitInterface $orderItemUnit2
+        OrderItemUnitInterface $orderItemUnit2,
     ): void {
         $orderItemUnit1->getOrderItem()->willReturn($this->getWrappedObject());
         $orderItemUnit1->getTotal()->willReturn(0, 100);
@@ -317,7 +317,7 @@ final class OrderItemSpec extends ObjectBehavior
 
     function it_has_correct_total_after_order_item_unit_total_change(
         OrderItemUnitInterface $orderItemUnit1,
-        OrderItemUnitInterface $orderItemUnit2
+        OrderItemUnitInterface $orderItemUnit2,
     ): void {
         $orderItemUnit1->getOrderItem()->willReturn($this->getWrappedObject());
         $orderItemUnit1->getTotal()->willReturn(0);
@@ -334,7 +334,7 @@ final class OrderItemSpec extends ObjectBehavior
 
     function it_has_correct_total_after_adjustment_amount_change(
         AdjustmentInterface $adjustment1,
-        AdjustmentInterface $adjustment2
+        AdjustmentInterface $adjustment2,
     ): void {
         $adjustment1->getAmount()->willReturn(100);
         $adjustment1->isNeutral()->willReturn(false);
@@ -353,7 +353,7 @@ final class OrderItemSpec extends ObjectBehavior
 
     function it_returns_correct_adjustments_total(
         AdjustmentInterface $adjustment1,
-        AdjustmentInterface $adjustment2
+        AdjustmentInterface $adjustment2,
     ): void {
         $adjustment1->getAmount()->willReturn(100);
         $adjustment1->isNeutral()->willReturn(false);
@@ -371,7 +371,7 @@ final class OrderItemSpec extends ObjectBehavior
     function it_returns_correct_adjustments_total_by_type(
         AdjustmentInterface $adjustment1,
         AdjustmentInterface $adjustment2,
-        AdjustmentInterface $adjustment3
+        AdjustmentInterface $adjustment3,
     ): void {
         $adjustment1->getType()->willReturn('tax');
         $adjustment1->getAmount()->willReturn(200);
@@ -401,7 +401,7 @@ final class OrderItemSpec extends ObjectBehavior
         AdjustmentInterface $taxAdjustment1,
         AdjustmentInterface $taxAdjustment2,
         OrderItemUnitInterface $orderItemUnit1,
-        OrderItemUnitInterface $orderItemUnit2
+        OrderItemUnitInterface $orderItemUnit2,
     ): void {
         $adjustment1->getAmount()->willReturn(200);
         $adjustment1->isNeutral()->willReturn(false);
@@ -432,7 +432,7 @@ final class OrderItemSpec extends ObjectBehavior
         AdjustmentInterface $taxAdjustment1,
         AdjustmentInterface $taxAdjustment2,
         OrderItemUnitInterface $orderItemUnit1,
-        OrderItemUnitInterface $orderItemUnit2
+        OrderItemUnitInterface $orderItemUnit2,
     ): void {
         $adjustment1->getType()->willReturn('tax');
         $adjustment1->getAmount()->willReturn(200);

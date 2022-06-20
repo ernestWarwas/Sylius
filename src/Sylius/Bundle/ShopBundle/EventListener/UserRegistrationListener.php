@@ -54,7 +54,7 @@ final class UserRegistrationListener
         EventDispatcherInterface $eventDispatcher,
         ChannelContextInterface $channelContext,
         UserLoginInterface $userLogin,
-        $firewallContextName
+        $firewallContextName,
     ) {
         $this->userManager = $userManager;
         $this->tokenGenerator = $tokenGenerator;

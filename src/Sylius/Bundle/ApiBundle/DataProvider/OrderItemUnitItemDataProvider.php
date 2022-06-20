@@ -31,7 +31,7 @@ final class OrderItemUnitItemDataProvider implements ItemDataProviderInterface, 
 
     public function __construct(
         OrderItemUnitRepositoryInterface $orderItemUnitRepository,
-        UserContextInterface $userContext
+        UserContextInterface $userContext,
     ) {
         $this->orderItemUnitRepository = $orderItemUnitRepository;
         $this->userContext = $userContext;

@@ -49,7 +49,7 @@ final class SendShipmentConfirmationEmailHandler implements MessageHandlerInterf
                 'order' => $order,
                 'channel' => $order->getChannel(),
                 'localeCode' => $order->getLocaleCode(),
-            ]
+            ],
         );
     }
 }

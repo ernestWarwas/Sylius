@@ -28,7 +28,7 @@ final class OrderInventoryOperator implements OrderInventoryOperatorInterface
 
     public function __construct(
         OrderInventoryOperatorInterface $decoratedOperator,
-        EntityManagerInterface $productVariantManager
+        EntityManagerInterface $productVariantManager,
     ) {
         $this->decoratedOperator = $decoratedOperator;
         $this->productVariantManager = $productVariantManager;

@@ -42,7 +42,7 @@ final class ProductType extends AbstractResourceType
         array $validationGroups,
         ProductVariantResolverInterface $variantResolver,
         FactoryInterface $attributeValueFactory,
-        TranslationLocaleProviderInterface $localeProvider
+        TranslationLocaleProviderInterface $localeProvider,
     ) {
         parent::__construct($dataClass, $validationGroups);
 

@@ -42,7 +42,7 @@ final class ShippingMethodType extends AbstractResourceType
         array $validationGroups,
         string $shippingMethodTranslationType,
         ServiceRegistryInterface $calculatorRegistry,
-        FormTypeRegistryInterface $formTypeRegistry
+        FormTypeRegistryInterface $formTypeRegistry,
     ) {
         parent::__construct($dataClass, $validationGroups);
 

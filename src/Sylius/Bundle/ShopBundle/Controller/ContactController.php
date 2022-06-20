@@ -62,7 +62,7 @@ final class ContactController
         ChannelContextInterface $channelContext,
         CustomerContextInterface $customerContext,
         LocaleContextInterface $localeContext,
-        ContactEmailManagerInterface $contactEmailManager
+        ContactEmailManagerInterface $contactEmailManager,
     ) {
         $this->router = $router;
         $this->formFactory = $formFactory;
@@ -92,7 +92,7 @@ final class ContactController
                 $errorMessage = $this->getSyliusAttribute(
                     $request,
                     'error_flash',
-                    'sylius.contact.request_error'
+                    'sylius.contact.request_error',
                 );
 
                 /** @var FlashBagInterface $flashBag */
@@ -108,7 +108,7 @@ final class ContactController
             $successMessage = $this->getSyliusAttribute(
                 $request,
                 'success_flash',
-                'sylius.contact.request_success'
+                'sylius.contact.request_success',
             );
 
             /** @var FlashBagInterface $flashBag */

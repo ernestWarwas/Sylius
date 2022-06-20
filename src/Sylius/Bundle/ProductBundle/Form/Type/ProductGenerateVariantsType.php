@@ -41,7 +41,8 @@ final class ProductGenerateVariantsType extends AbstractResourceType
                 'allow_delete' => true,
                 'by_reference' => false,
             ])
-            ->addEventSubscriber($this->generateProductVariantsSubscriber);
+            ->addEventSubscriber($this->generateProductVariantsSubscriber)
+        ;
     }
 
     public function getBlockPrefix(): string

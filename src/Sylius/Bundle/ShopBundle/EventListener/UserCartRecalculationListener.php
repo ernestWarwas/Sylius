@@ -37,7 +37,7 @@ final class UserCartRecalculationListener
     public function __construct(
         CartContextInterface $cartContext,
         OrderProcessorInterface $orderProcessor,
-        SectionProviderInterface $uriBasedSectionContext
+        SectionProviderInterface $uriBasedSectionContext,
     ) {
         $this->cartContext = $cartContext;
         $this->orderProcessor = $orderProcessor;
@@ -58,7 +58,7 @@ final class UserCartRecalculationListener
             throw new \TypeError(sprintf(
                 '$event needs to be an instance of "%s" or "%s"',
                 InteractiveLoginEvent::class,
-                UserEvent::class
+                UserEvent::class,
             ));
         }
 

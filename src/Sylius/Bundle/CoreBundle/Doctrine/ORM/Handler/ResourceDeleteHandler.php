@@ -51,7 +51,7 @@ final class ResourceDeleteHandler implements ResourceDeleteHandlerInterface
                 'something_went_wrong_error',
                 500,
                 0,
-                $exception
+                $exception,
             );
         }
     }

@@ -31,7 +31,7 @@ final class PaymentMethodChoiceType extends AbstractType
 
     public function __construct(
         PaymentMethodsResolverInterface $paymentMethodsResolver,
-        RepositoryInterface $paymentMethodRepository
+        RepositoryInterface $paymentMethodRepository,
     ) {
         $this->paymentMethodsResolver = $paymentMethodsResolver;
         $this->paymentMethodRepository = $paymentMethodRepository;

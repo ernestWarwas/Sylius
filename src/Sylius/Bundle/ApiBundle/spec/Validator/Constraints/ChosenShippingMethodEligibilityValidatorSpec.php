@@ -33,7 +33,7 @@ final class ChosenShippingMethodEligibilityValidatorSpec extends ObjectBehavior
         ShipmentRepositoryInterface $shipmentRepository,
         ShippingMethodRepositoryInterface $shippingMethodRepository,
         ShippingMethodsResolverInterface $shippingMethodsResolver,
-        ExecutionContextInterface $executionContext
+        ExecutionContextInterface $executionContext,
     ): void {
         $this->beConstructedWith($shipmentRepository, $shippingMethodRepository, $shippingMethodsResolver);
 
@@ -69,7 +69,7 @@ final class ChosenShippingMethodEligibilityValidatorSpec extends ObjectBehavior
         ExecutionContextInterface $executionContext,
         ShippingMethodInterface $shippingMethod,
         ShippingMethodInterface $differentShippingMethod,
-        ShipmentInterface $shipment
+        ShipmentInterface $shipment,
     ): void {
         $command = new ChooseShippingMethod('SHIPPING_METHOD_CODE');
         $command->setOrderTokenValue('ORDER_TOKEN');
@@ -96,7 +96,7 @@ final class ChosenShippingMethodEligibilityValidatorSpec extends ObjectBehavior
         ShippingMethodsResolverInterface $shippingMethodsResolver,
         ExecutionContextInterface $executionContext,
         ShippingMethodInterface $shippingMethod,
-        ShipmentInterface $shipment
+        ShipmentInterface $shipment,
     ): void {
         $command = new ChooseShippingMethod('SHIPPING_METHOD_CODE');
         $command->setOrderTokenValue('ORDER_TOKEN');
@@ -119,7 +119,7 @@ final class ChosenShippingMethodEligibilityValidatorSpec extends ObjectBehavior
     function it_adds_a_violation_if_given_shipping_method_is_null(
         ShipmentRepositoryInterface $shipmentRepository,
         ShippingMethodRepositoryInterface $shippingMethodRepository,
-        ExecutionContextInterface $executionContext
+        ExecutionContextInterface $executionContext,
     ): void {
         $command = new ChooseShippingMethod('SHIPPING_METHOD_CODE');
         $command->setOrderTokenValue('ORDER_TOKEN');
@@ -144,7 +144,7 @@ final class ChosenShippingMethodEligibilityValidatorSpec extends ObjectBehavior
         ShipmentRepositoryInterface $shipmentRepository,
         ShippingMethodRepositoryInterface $shippingMethodRepository,
         ExecutionContextInterface $executionContext,
-        ShippingMethodInterface $shippingMethod
+        ShippingMethodInterface $shippingMethod,
     ): void {
         $command = new ChooseShippingMethod('SHIPPING_METHOD_CODE');
         $command->setOrderTokenValue('ORDER_TOKEN');

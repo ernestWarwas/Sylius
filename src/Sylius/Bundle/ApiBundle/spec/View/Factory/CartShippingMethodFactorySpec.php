@@ -29,7 +29,7 @@ final class CartShippingMethodFactorySpec extends ObjectBehavior
     {
         $this->create($shippingMethod->getWrappedObject(), 10)->shouldBeLike(new CartShippingMethod(
             $shippingMethod->getWrappedObject(),
-            10
+            10,
         ));
     }
 }

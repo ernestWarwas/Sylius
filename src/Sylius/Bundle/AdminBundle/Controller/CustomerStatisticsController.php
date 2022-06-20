@@ -37,7 +37,7 @@ final class CustomerStatisticsController
     public function __construct(
         CustomerStatisticsProviderInterface $statisticsProvider,
         RepositoryInterface $customerRepository,
-        object $templatingEngine
+        object $templatingEngine,
     ) {
         $this->statisticsProvider = $statisticsProvider;
         $this->customerRepository = $customerRepository;
@@ -56,7 +56,7 @@ final class CustomerStatisticsController
         if (null === $customer) {
             throw new HttpException(
                 Response::HTTP_BAD_REQUEST,
-                sprintf('Customer with id %s doesn\'t exist.', (string) $customerId)
+                sprintf('Customer with id %s doesn\'t exist.', (string) $customerId),
             );
         }
 
@@ -64,7 +64,7 @@ final class CustomerStatisticsController
 
         return new Response($this->templatingEngine->render(
             '@SyliusAdmin/Customer/Show/Statistics/index.html.twig',
-            ['statistics' => $customerStatistics]
+            ['statistics' => $customerStatistics],
         ));
     }
 }

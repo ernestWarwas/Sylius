@@ -45,7 +45,7 @@ final class ProductVariantsPricesProviderSpec extends ObjectBehavior
         ProductVariantInterface $blackSmallTShirt,
         ProductVariantInterface $whiteLargeTShirt,
         ProductVariantInterface $whiteSmallTShirt,
-        ProductVariantPricesCalculatorInterface $productVariantPriceCalculator
+        ProductVariantPricesCalculatorInterface $productVariantPriceCalculator,
     ): void {
         $tShirt->getEnabledVariants()->willReturn(new ArrayCollection([
             $blackSmallTShirt->getWrappedObject(),
@@ -55,16 +55,16 @@ final class ProductVariantsPricesProviderSpec extends ObjectBehavior
         ]));
 
         $blackSmallTShirt->getOptionValues()->willReturn(
-            new ArrayCollection([$black->getWrappedObject(), $small->getWrappedObject()])
+            new ArrayCollection([$black->getWrappedObject(), $small->getWrappedObject()]),
         );
         $whiteSmallTShirt->getOptionValues()->willReturn(
-            new ArrayCollection([$white->getWrappedObject(), $small->getWrappedObject()])
+            new ArrayCollection([$white->getWrappedObject(), $small->getWrappedObject()]),
         );
         $blackLargeTShirt->getOptionValues()->willReturn(
-            new ArrayCollection([$black->getWrappedObject(), $large->getWrappedObject()])
+            new ArrayCollection([$black->getWrappedObject(), $large->getWrappedObject()]),
         );
         $whiteLargeTShirt->getOptionValues()->willReturn(
-            new ArrayCollection([$white->getWrappedObject(), $large->getWrappedObject()])
+            new ArrayCollection([$white->getWrappedObject(), $large->getWrappedObject()]),
         );
 
         $productVariantPriceCalculator->calculate($blackSmallTShirt, ['channel' => $channel])->willReturn(1000);
