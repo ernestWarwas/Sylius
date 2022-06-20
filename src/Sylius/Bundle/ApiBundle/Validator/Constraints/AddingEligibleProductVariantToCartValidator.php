@@ -36,7 +36,7 @@ final class AddingEligibleProductVariantToCartValidator extends ConstraintValida
     public function __construct(
         ProductVariantRepositoryInterface $productVariantRepository,
         OrderRepositoryInterface $orderRepository,
-        AvailabilityCheckerInterface $availabilityChecker
+        AvailabilityCheckerInterface $availabilityChecker,
     ) {
         $this->productVariantRepository = $productVariantRepository;
         $this->orderRepository = $orderRepository;
@@ -56,7 +56,7 @@ final class AddingEligibleProductVariantToCartValidator extends ConstraintValida
         if ($productVariant === null) {
             $this->context->addViolation(
                 $constraint->productVariantNotExistMessage,
-                ['%productVariantCode%' => $value->productVariantCode]
+                ['%productVariantCode%' => $value->productVariantCode],
             );
 
             return;
@@ -67,7 +67,7 @@ final class AddingEligibleProductVariantToCartValidator extends ConstraintValida
         if (!$product->isEnabled()) {
             $this->context->addViolation(
                 $constraint->productNotExistMessage,
-                ['%productName%' => $product->getName()]
+                ['%productName%' => $product->getName()],
             );
 
             return;
@@ -76,7 +76,7 @@ final class AddingEligibleProductVariantToCartValidator extends ConstraintValida
         if (!$productVariant->isEnabled()) {
             $this->context->addViolation(
                 $constraint->productVariantNotExistMessage,
-                ['%productVariantCode%' => $productVariant->getCode()]
+                ['%productVariantCode%' => $productVariant->getCode()],
             );
 
             return;
@@ -88,11 +88,11 @@ final class AddingEligibleProductVariantToCartValidator extends ConstraintValida
 
         if (!$this->availabilityChecker->isStockSufficient(
             $productVariant,
-            $value->quantity + $this->getExistingCartItemQuantityFromCart($cart, $productVariant)
+            $value->quantity + $this->getExistingCartItemQuantityFromCart($cart, $productVariant),
         )) {
             $this->context->addViolation(
                 $constraint->productVariantNotSufficient,
-                ['%productVariantCode%' => $productVariant->getCode()]
+                ['%productVariantCode%' => $productVariant->getCode()],
             );
 
             return;
@@ -104,7 +104,7 @@ final class AddingEligibleProductVariantToCartValidator extends ConstraintValida
         if (!$product->hasChannel($channel)) {
             $this->context->addViolation(
                 $constraint->productNotExistMessage,
-                ['%productName%' => $product->getName()]
+                ['%productName%' => $product->getName()],
             );
         }
     }

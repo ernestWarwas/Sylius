@@ -38,7 +38,7 @@ final class RegisterShopUserHandlerSpec extends ObjectBehavior
         CustomerProviderInterface $customerProvider,
         ChannelRepositoryInterface $channelRepository,
         GeneratorInterface $generator,
-        MessageBusInterface $commandBus
+        MessageBusInterface $commandBus,
     ): void {
         $this->beConstructedWith(
             $shopUserFactory,
@@ -46,7 +46,7 @@ final class RegisterShopUserHandlerSpec extends ObjectBehavior
             $customerProvider,
             $channelRepository,
             $generator,
-            $commandBus
+            $commandBus,
         );
     }
 
@@ -64,7 +64,7 @@ final class RegisterShopUserHandlerSpec extends ObjectBehavior
         ChannelRepositoryInterface $channelRepository,
         ChannelInterface $channel,
         GeneratorInterface $generator,
-        MessageBusInterface $commandBus
+        MessageBusInterface $commandBus,
     ): void {
         $command = new RegisterShopUser('Will', 'Smith', 'WILL.SMITH@example.com', 'iamrobot', '+13104322400', true);
         $command->setChannelCode('CHANNEL_CODE');
@@ -115,7 +115,7 @@ final class RegisterShopUserHandlerSpec extends ObjectBehavior
         CustomerInterface $customer,
         ChannelRepositoryInterface $channelRepository,
         ChannelInterface $channel,
-        MessageBusInterface $commandBus
+        MessageBusInterface $commandBus,
     ): void {
         $command = new RegisterShopUser('Will', 'Smith', 'WILL.SMITH@example.com', 'iamrobot', '+13104322400', true);
         $command->setChannelCode('CHANNEL_CODE');
@@ -157,7 +157,7 @@ final class RegisterShopUserHandlerSpec extends ObjectBehavior
         ShopUserInterface $shopUser,
         CustomerInterface $customer,
         ShopUserInterface $existingShopUser,
-        MessageBusInterface $commandBus
+        MessageBusInterface $commandBus,
     ): void {
         $shopUserFactory->createNew()->willReturn($shopUser);
         $customerProvider->provide('WILL.SMITH@example.com')->willReturn($customer);

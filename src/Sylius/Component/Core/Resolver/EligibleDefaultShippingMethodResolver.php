@@ -38,7 +38,7 @@ final class EligibleDefaultShippingMethodResolver implements DefaultShippingMeth
     public function __construct(
         ShippingMethodRepositoryInterface $shippingMethodRepository,
         ShippingMethodEligibilityCheckerInterface $shippingMethodEligibilityChecker,
-        ZoneMatcherInterface $zoneMatcher
+        ZoneMatcherInterface $zoneMatcher,
     ) {
         $this->shippingMethodRepository = $shippingMethodRepository;
         $this->shippingMethodEligibilityChecker = $shippingMethodEligibilityChecker;

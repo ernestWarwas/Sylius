@@ -45,7 +45,7 @@ final class SendOrderConfirmationHandler implements MessageHandlerInterface
                 'order' => $order,
                 'channel' => $order->getChannel(),
                 'localeCode' => $order->getLocaleCode(),
-            ]
+            ],
         );
     }
 }

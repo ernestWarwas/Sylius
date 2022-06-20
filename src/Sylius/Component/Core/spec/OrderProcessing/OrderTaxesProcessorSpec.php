@@ -34,7 +34,7 @@ final class OrderTaxesProcessorSpec extends ObjectBehavior
     function let(
         ZoneProviderInterface $defaultTaxZoneProvider,
         ZoneMatcherInterface $zoneMatcher,
-        PrioritizedServiceRegistryInterface $strategyRegistry
+        PrioritizedServiceRegistryInterface $strategyRegistry,
     ): void {
         $this->beConstructedWith($defaultTaxZoneProvider, $zoneMatcher, $strategyRegistry);
     }
@@ -53,7 +53,7 @@ final class OrderTaxesProcessorSpec extends ObjectBehavior
         AddressInterface $address,
         ZoneInterface $zone,
         TaxCalculationStrategyInterface $strategyOne,
-        TaxCalculationStrategyInterface $strategyTwo
+        TaxCalculationStrategyInterface $strategyTwo,
     ): void {
         $order->getItems()->willReturn(new ArrayCollection([$orderItem->getWrappedObject()]));
         $order->getShipments()->willReturn(new ArrayCollection([$shipment->getWrappedObject()]));
@@ -83,7 +83,7 @@ final class OrderTaxesProcessorSpec extends ObjectBehavior
         OrderItemInterface $orderItem,
         AddressInterface $address,
         ZoneInterface $zone,
-        TaxCalculationStrategyInterface $strategy
+        TaxCalculationStrategyInterface $strategy,
     ): void {
         $order->getItems()->willReturn(new ArrayCollection([$orderItem->getWrappedObject()]));
         $order->getShipments()->willReturn(new ArrayCollection([]));
@@ -121,7 +121,7 @@ final class OrderTaxesProcessorSpec extends ObjectBehavior
         PrioritizedServiceRegistryInterface $strategyRegistry,
         OrderInterface $order,
         OrderItemInterface $orderItem,
-        AddressInterface $address
+        AddressInterface $address,
     ): void {
         $order->getItems()->willReturn(new ArrayCollection([$orderItem->getWrappedObject()]));
         $order->getShipments()->willReturn(new ArrayCollection([]));

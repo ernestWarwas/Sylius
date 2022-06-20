@@ -120,7 +120,7 @@ class ProductVariantRepository extends EntityRepository implements ProductVarian
             ->andWhere('product.code = :productCode')
             ->andWhere($expr->orX(
                 'translation.name LIKE :phrase',
-                'o.code LIKE :phrase'
+                'o.code LIKE :phrase',
             ))
             ->setParameter('phrase', '%' . $phrase . '%')
             ->setParameter('locale', $locale)

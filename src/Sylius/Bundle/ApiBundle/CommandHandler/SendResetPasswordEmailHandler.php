@@ -32,7 +32,7 @@ final class SendResetPasswordEmailHandler implements MessageHandlerInterface
     public function __construct(
         SenderInterface $emailSender,
         ChannelRepositoryInterface $channelRepository,
-        UserRepositoryInterface $userRepository
+        UserRepositoryInterface $userRepository,
     ) {
         $this->emailSender = $emailSender;
         $this->channelRepository = $channelRepository;
@@ -51,7 +51,7 @@ final class SendResetPasswordEmailHandler implements MessageHandlerInterface
                 'user' => $user,
                 'localeCode' => $command->localeCode(),
                 'channel' => $channel,
-            ]
+            ],
         );
     }
 }

@@ -21,7 +21,7 @@ final class RequestResetPasswordTokenHandlerSpec extends ObjectBehavior
     function let(
         UserRepositoryInterface $userRepository,
         MessageBusInterface $messageBus,
-        GeneratorInterface $generator
+        GeneratorInterface $generator,
     ): void {
         $this->beConstructedWith($userRepository, $messageBus, $generator);
     }
@@ -35,7 +35,7 @@ final class RequestResetPasswordTokenHandlerSpec extends ObjectBehavior
         UserRepositoryInterface $userRepository,
         ShopUserInterface $shopUser,
         GeneratorInterface $generator,
-        MessageBusInterface $messageBus
+        MessageBusInterface $messageBus,
     ): void {
         $userRepository->findOneByEmail('test@email.com')->willReturn($shopUser);
 
@@ -47,7 +47,7 @@ final class RequestResetPasswordTokenHandlerSpec extends ObjectBehavior
 
         $messageBus->dispatch(
             $sendResetPasswordEmail,
-            [new DispatchAfterCurrentBusStamp()]
+            [new DispatchAfterCurrentBusStamp()],
         )->willReturn(new Envelope($sendResetPasswordEmail))->shouldBeCalled();
 
         $requestResetPasswordToken = new RequestResetPasswordToken('test@email.com');

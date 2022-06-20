@@ -30,7 +30,7 @@ final class HomepageContext implements Context
     public function __construct(
         ApiClientInterface $productsClient,
         ApiClientInterface $taxonsClient,
-        ResponseCheckerInterface $responseChecker
+        ResponseCheckerInterface $responseChecker,
     ) {
         $this->productsClient = $productsClient;
         $this->taxonsClient = $taxonsClient;
@@ -44,7 +44,7 @@ final class HomepageContext implements Context
     {
         $this->productsClient->customAction(
             'api/v2/shop/products?itemsPerPage=3&order[createdAt]=desc',
-            HttpRequest::METHOD_GET
+            HttpRequest::METHOD_GET,
         );
     }
 

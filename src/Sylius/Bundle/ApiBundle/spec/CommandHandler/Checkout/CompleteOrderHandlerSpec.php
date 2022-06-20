@@ -30,7 +30,7 @@ final class CompleteOrderHandlerSpec extends ObjectBehavior
     function let(
         OrderRepositoryInterface $orderRepository,
         FactoryInterface $stateMachineFactory,
-        MessageBusInterface $eventBus
+        MessageBusInterface $eventBus,
     ): void {
         $this->beConstructedWith($orderRepository, $stateMachineFactory, $eventBus);
     }
@@ -40,7 +40,7 @@ final class CompleteOrderHandlerSpec extends ObjectBehavior
         StateMachineInterface $stateMachine,
         OrderInterface $order,
         FactoryInterface $stateMachineFactory,
-        MessageBusInterface $eventBus
+        MessageBusInterface $eventBus,
     ): void {
         $completeOrder = new CompleteOrder();
         $completeOrder->setOrderTokenValue('ORDERTOKEN');
@@ -71,7 +71,7 @@ final class CompleteOrderHandlerSpec extends ObjectBehavior
         StateMachineInterface $stateMachine,
         OrderInterface $order,
         FactoryInterface $stateMachineFactory,
-        MessageBusInterface $eventBus
+        MessageBusInterface $eventBus,
     ): void {
         $completeOrder = new CompleteOrder('ThankYou');
         $completeOrder->setOrderTokenValue('ORDERTOKEN');
@@ -98,7 +98,7 @@ final class CompleteOrderHandlerSpec extends ObjectBehavior
     }
 
     function it_throws_an_exception_if_order_does_not_exist(
-        OrderRepositoryInterface $orderRepository
+        OrderRepositoryInterface $orderRepository,
     ): void {
         $completeOrder = new CompleteOrder();
         $completeOrder->setOrderTokenValue('ORDERTOKEN');
@@ -115,7 +115,7 @@ final class CompleteOrderHandlerSpec extends ObjectBehavior
         OrderRepositoryInterface $orderRepository,
         StateMachineInterface $stateMachine,
         OrderInterface $order,
-        FactoryInterface $stateMachineFactory
+        FactoryInterface $stateMachineFactory,
     ): void {
         $completeOrder = new CompleteOrder();
         $completeOrder->setOrderTokenValue('ORDERTOKEN');

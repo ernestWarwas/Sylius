@@ -32,14 +32,14 @@ final class FooApiCommandTest extends ApiTestCase
         static::createClient()->request(
             'POST',
             'api/v2/foo-api-command',
-            ['json' => ['name' => 'FooCommandPost']]
+            ['json' => ['name' => 'FooCommandPost']],
         );
         $this->assertResponseHeaderSame('content-type', 'application/ld+json; charset=utf-8');
 
         $this->assertResponseStatusCodeSame(Response::HTTP_BAD_REQUEST);
         $this->assertJsonContains([
             'code' => Response::HTTP_BAD_REQUEST,
-            'message' => 'Request does not have the following required fields specified: bar.'
+            'message' => 'Request does not have the following required fields specified: bar.',
         ]);
     }
 
@@ -49,7 +49,7 @@ final class FooApiCommandTest extends ApiTestCase
         static::createClient()->request(
             'POST',
             'api/v2/foo-api-command',
-            ['json' => ['bar' => 'FooCommandPost']]
+            ['json' => ['bar' => 'FooCommandPost']],
         );
         $this->assertResponseIsSuccessful();
     }

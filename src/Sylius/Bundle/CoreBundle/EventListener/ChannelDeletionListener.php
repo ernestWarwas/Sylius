@@ -37,7 +37,7 @@ final class ChannelDeletionListener
         if (!$channel instanceof ChannelInterface) {
             throw new UnexpectedTypeException(
                 $channel,
-                ChannelInterface::class
+                ChannelInterface::class,
             );
         }
 

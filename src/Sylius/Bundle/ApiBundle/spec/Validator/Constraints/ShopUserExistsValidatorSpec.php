@@ -55,7 +55,7 @@ final class ShopUserExistsValidatorSpec extends ObjectBehavior
 
     function it_adds_violation_if_shop_user_does_not_exist(
         UserRepositoryInterface $userRepository,
-        ExecutionContextInterface $executionContext
+        ExecutionContextInterface $executionContext,
     ): void {
         $this->initialize($executionContext);
 
@@ -65,7 +65,8 @@ final class ShopUserExistsValidatorSpec extends ObjectBehavior
 
         $executionContext
             ->addViolation('sylius.account.invalid_email', ['%email%' => 'test@sylius.com'])
-            ->shouldBeCalled();
+            ->shouldBeCalled()
+        ;
 
         $this->validate($value, new ShopUserExists());
     }
@@ -73,7 +74,7 @@ final class ShopUserExistsValidatorSpec extends ObjectBehavior
     function it_does_not_add_violation_if_shop_user_exists(
         UserRepositoryInterface $userRepository,
         ExecutionContextInterface $executionContext,
-        ShopUserInterface $shopUser
+        ShopUserInterface $shopUser,
     ): void {
         $this->initialize($executionContext);
 
@@ -83,7 +84,8 @@ final class ShopUserExistsValidatorSpec extends ObjectBehavior
 
         $executionContext
             ->addViolation('sylius.account.invalid_email', ['%email%' => 'test@sylius.com'])
-            ->shouldNotBeCalled();
+            ->shouldNotBeCalled()
+        ;
 
         $this->validate($value, new ShopUserExists());
     }

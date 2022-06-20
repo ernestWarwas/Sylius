@@ -34,7 +34,7 @@ final class UpdateUserEncoderListener
         string $recommendedEncoderName,
         string $className,
         string $interfaceName,
-        string $passwordParameter
+        string $passwordParameter,
     ) {
         $this->objectManager = $objectManager;
         $this->recommendedEncoderName = $recommendedEncoderName;

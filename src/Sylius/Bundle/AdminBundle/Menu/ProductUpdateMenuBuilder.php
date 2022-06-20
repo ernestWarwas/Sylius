@@ -88,7 +88,7 @@ final class ProductUpdateMenuBuilder
 
         $this->eventDispatcher->dispatch(
             new ProductMenuBuilderEvent($this->factory, $menu, $product),
-            self::EVENT_NAME
+            self::EVENT_NAME,
         );
 
         return $menu;

@@ -34,7 +34,7 @@ final class RemoveAvatarAction
     public function __construct(
         AvatarImageRepositoryInterface $avatarRepository,
         RouterInterface $router,
-        CsrfTokenManagerInterface $csrfTokenManager
+        CsrfTokenManagerInterface $csrfTokenManager,
     ) {
         $this->avatarRepository = $avatarRepository;
         $this->router = $router;

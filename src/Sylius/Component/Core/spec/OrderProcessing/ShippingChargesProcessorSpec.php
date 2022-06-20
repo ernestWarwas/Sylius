@@ -57,7 +57,7 @@ final class ShippingChargesProcessorSpec extends ObjectBehavior
         AdjustmentInterface $adjustment,
         OrderInterface $order,
         ShipmentInterface $shipment,
-        ShippingMethodInterface $shippingMethod
+        ShippingMethodInterface $shippingMethod,
     ): void {
         $adjustmentFactory->createNew()->willReturn($adjustment);
         $order->getShipments()->willReturn(new ArrayCollection([$shipment->getWrappedObject()]));

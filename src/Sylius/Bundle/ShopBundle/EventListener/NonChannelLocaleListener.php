@@ -43,7 +43,7 @@ final class NonChannelLocaleListener
         RouterInterface $router,
         LocaleProviderInterface $channelBasedLocaleProvider,
         FirewallMap $firewallMap,
-        array $firewallNames
+        array $firewallNames,
     ) {
         Assert::notEmpty($firewallNames);
         Assert::allString($firewallNames);
@@ -80,9 +80,9 @@ final class NonChannelLocaleListener
                 new RedirectResponse(
                     $this->router->generate(
                         'sylius_shop_homepage',
-                        ['_locale' => $this->channelBasedLocaleProvider->getDefaultLocaleCode()]
-                    )
-                )
+                        ['_locale' => $this->channelBasedLocaleProvider->getDefaultLocaleCode()],
+                    ),
+                ),
             );
         }
     }

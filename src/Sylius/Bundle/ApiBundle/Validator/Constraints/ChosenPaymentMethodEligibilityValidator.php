@@ -34,7 +34,7 @@ final class ChosenPaymentMethodEligibilityValidator extends ConstraintValidator
     public function __construct(
         PaymentRepositoryInterface $paymentRepository,
         PaymentMethodRepositoryInterface $paymentMethodRepository,
-        PaymentMethodsResolverInterface $paymentMethodsResolver
+        PaymentMethodsResolverInterface $paymentMethodsResolver,
     ) {
         $this->paymentRepository = $paymentRepository;
         $this->paymentMethodRepository = $paymentMethodRepository;

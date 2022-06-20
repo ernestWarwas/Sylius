@@ -39,7 +39,7 @@ final class PromotionCouponEligibilityValidator extends ConstraintValidator
         PromotionCouponRepositoryInterface $promotionCouponRepository,
         OrderRepositoryInterface $orderRepository,
         PromotionEligibilityCheckerInterface $promotionChecker,
-        PromotionCouponEligibilityCheckerInterface $promotionCouponChecker
+        PromotionCouponEligibilityCheckerInterface $promotionCouponChecker,
     ) {
         $this->promotionCouponRepository = $promotionCouponRepository;
         $this->orderRepository = $orderRepository;

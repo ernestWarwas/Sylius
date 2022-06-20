@@ -35,7 +35,7 @@ abstract class AttributeType extends AbstractResourceType
         string $dataClass,
         array $validationGroups,
         string $attributeTranslationType,
-        FormTypeRegistryInterface $formTypeRegistry
+        FormTypeRegistryInterface $formTypeRegistry,
     ) {
         parent::__construct($dataClass, $validationGroups);
 

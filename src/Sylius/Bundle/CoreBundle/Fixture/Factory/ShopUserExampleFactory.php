@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Sylius\Bundle\CoreBundle\Fixture\OptionsResolver\LazyOption;
 use Sylius\Component\Core\Model\CustomerInterface;
 use Sylius\Component\Core\Model\ShopUserInterface;
@@ -40,7 +40,7 @@ class ShopUserExampleFactory extends AbstractExampleFactory implements ExampleFa
     public function __construct(
         FactoryInterface $shopUserFactory,
         FactoryInterface $customerFactory,
-        RepositoryInterface $customerGroupRepository
+        RepositoryInterface $customerGroupRepository,
     ) {
         $this->shopUserFactory = $shopUserFactory;
         $this->customerFactory = $customerFactory;
@@ -79,9 +79,9 @@ class ShopUserExampleFactory extends AbstractExampleFactory implements ExampleFa
     protected function configureOptions(OptionsResolver $resolver): void
     {
         $resolver
-            ->setDefault('email', fn(Options $options): string => $this->faker->email)
-            ->setDefault('first_name', fn(Options $options): string => $this->faker->firstName)
-            ->setDefault('last_name', fn(Options $options): string => $this->faker->lastName)
+            ->setDefault('email', fn (Options $options): string => $this->faker->email)
+            ->setDefault('first_name', fn (Options $options): string => $this->faker->firstName)
+            ->setDefault('last_name', fn (Options $options): string => $this->faker->lastName)
             ->setDefault('enabled', true)
             ->setAllowedTypes('enabled', 'bool')
             ->setDefault('password', 'password123')
@@ -91,10 +91,10 @@ class ShopUserExampleFactory extends AbstractExampleFactory implements ExampleFa
             ->setDefault('gender', CustomerComponent::UNKNOWN_GENDER)
             ->setAllowedValues(
                 'gender',
-                [CustomerComponent::UNKNOWN_GENDER, CustomerComponent::MALE_GENDER, CustomerComponent::FEMALE_GENDER]
+                [CustomerComponent::UNKNOWN_GENDER, CustomerComponent::MALE_GENDER, CustomerComponent::FEMALE_GENDER],
             )
-            ->setDefault('phone_number', fn(Options $options): string => $this->faker->phoneNumber)
-            ->setDefault('birthday', fn(Options $options): \DateTime => $this->faker->dateTimeThisCentury())
+            ->setDefault('phone_number', fn (Options $options): string => $this->faker->phoneNumber)
+            ->setDefault('birthday', fn (Options $options): \DateTime => $this->faker->dateTimeThisCentury())
             ->setAllowedTypes('birthday', ['null', 'string', \DateTimeInterface::class])
             ->setNormalizer(
                 'birthday',
@@ -105,7 +105,7 @@ class ShopUserExampleFactory extends AbstractExampleFactory implements ExampleFa
                     }
 
                     return $value;
-                }
+                },
             )
         ;
     }

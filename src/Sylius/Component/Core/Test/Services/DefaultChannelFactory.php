@@ -49,7 +49,7 @@ final class DefaultChannelFactory implements DefaultChannelFactoryInterface
         RepositoryInterface $channelRepository,
         RepositoryInterface $currencyRepository,
         RepositoryInterface $localeRepository,
-        string $defaultLocaleCode
+        string $defaultLocaleCode,
     ) {
         $this->channelFactory = $channelFactory;
         $this->currencyFactory = $currencyFactory;

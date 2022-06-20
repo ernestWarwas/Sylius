@@ -42,7 +42,7 @@ final class RequestBasedLocaleContextSpec extends ObjectBehavior
 
     function it_throws_locale_not_found_exception_if_master_request_does_not_have_locale_attribute(
         RequestStack $requestStack,
-        Request $request
+        Request $request,
     ): void {
         $requestStack->getMasterRequest()->willReturn($request);
 
@@ -54,7 +54,7 @@ final class RequestBasedLocaleContextSpec extends ObjectBehavior
     function it_throws_locale_not_found_exception_if_master_request_locale_code_is_not_among_available_ones(
         RequestStack $requestStack,
         LocaleProviderInterface $localeProvider,
-        Request $request
+        Request $request,
     ): void {
         $requestStack->getMasterRequest()->willReturn($request);
 
@@ -68,7 +68,7 @@ final class RequestBasedLocaleContextSpec extends ObjectBehavior
     function it_returns_master_request_locale_code(
         RequestStack $requestStack,
         LocaleProviderInterface $localeProvider,
-        Request $request
+        Request $request,
     ): void {
         $requestStack->getMasterRequest()->willReturn($request);
 

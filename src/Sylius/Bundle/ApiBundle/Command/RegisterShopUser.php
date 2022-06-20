@@ -20,48 +20,50 @@ class RegisterShopUser implements ChannelCodeAwareInterface, LocaleCodeAwareInte
 {
     /**
      * @psalm-immutable
+     *
      * @var string
      */
     public $firstName;
 
     /**
      * @psalm-immutable
+     *
      * @var string
      */
     public $lastName;
 
     /**
      * @psalm-immutable
+     *
      * @var string
      */
     public $email;
 
     /**
      * @psalm-immutable
+     *
      * @var string
      */
     public $password;
 
     /**
      * @psalm-immutable
+     *
      * @var string|null
      */
     public $phoneNumber;
 
     /**
      * @psalm-immutable
+     *
      * @var bool
      */
     public $subscribedToNewsletter;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     public $channelCode;
 
-    /**
-     * @var string|null
-     */
+    /** @var string|null */
     public $localeCode;
 
     public function __construct(
@@ -70,7 +72,7 @@ class RegisterShopUser implements ChannelCodeAwareInterface, LocaleCodeAwareInte
         string $email,
         string $password,
         ?string $phoneNumber = null,
-        bool $subscribedToNewsletter = false
+        bool $subscribedToNewsletter = false,
     ) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;

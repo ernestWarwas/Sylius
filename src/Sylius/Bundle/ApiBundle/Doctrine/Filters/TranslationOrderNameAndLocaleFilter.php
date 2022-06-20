@@ -27,7 +27,7 @@ final class TranslationOrderNameAndLocaleFilter extends AbstractContextAwareFilt
         QueryBuilder $queryBuilder,
         QueryNameGeneratorInterface $queryNameGenerator,
         string $resourceClass,
-        string $operationName = null
+        string $operationName = null,
     ): void {
         if ('order' === $property) {
             if (!isset($value['translation.name'])) {
@@ -43,7 +43,7 @@ final class TranslationOrderNameAndLocaleFilter extends AbstractContextAwareFilt
                         sprintf('%s.translations', $queryBuilder->getRootAliases()[0]),
                         'translation',
                         'WITH',
-                        'translation.locale = :locale'
+                        'translation.locale = :locale',
                     )
                     ->orderBy('translation.name', $direction)
                     ->setParameter('locale', $value['localeCode'])

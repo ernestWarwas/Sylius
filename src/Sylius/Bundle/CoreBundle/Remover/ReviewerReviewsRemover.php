@@ -31,7 +31,7 @@ final class ReviewerReviewsRemover implements ReviewerReviewsRemoverInterface
     public function __construct(
         EntityRepository $reviewRepository,
         ObjectManager $reviewManager,
-        ReviewableRatingUpdaterInterface $averageRatingUpdater
+        ReviewableRatingUpdaterInterface $averageRatingUpdater,
     ) {
         $this->reviewRepository = $reviewRepository;
         $this->reviewManager = $reviewManager;

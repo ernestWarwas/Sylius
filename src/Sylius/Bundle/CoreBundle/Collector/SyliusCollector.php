@@ -30,7 +30,7 @@ final class SyliusCollector extends DataCollector
     public function __construct(
         ShopperContextInterface $shopperContext,
         array $bundles,
-        string $defaultLocaleCode
+        string $defaultLocaleCode,
     ) {
         $this->shopperContext = $shopperContext;
 

@@ -35,7 +35,7 @@ final class ResendVerificationEmailHandler implements MessageHandlerInterface
     public function __construct(
         UserRepositoryInterface $shopUserRepository,
         GeneratorInterface $tokenGenerator,
-        MessageBusInterface $commandBus
+        MessageBusInterface $commandBus,
     ) {
         $this->shopUserRepository = $shopUserRepository;
         $this->tokenGenerator = $tokenGenerator;
@@ -53,7 +53,7 @@ final class ResendVerificationEmailHandler implements MessageHandlerInterface
         $this->commandBus->dispatch(new SendAccountVerificationEmail(
             $command->email,
             $command->localeCode,
-            $command->channelCode
+            $command->channelCode,
         ), [new DispatchAfterCurrentBusStamp()]);
     }
 }

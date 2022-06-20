@@ -30,7 +30,7 @@ final class CartSessionStorage implements CartStorageInterface
     public function __construct(
         SessionInterface $session,
         string $sessionKeyName,
-        OrderRepositoryInterface $orderRepository
+        OrderRepositoryInterface $orderRepository,
     ) {
         $this->session = $session;
         $this->sessionKeyName = $sessionKeyName;

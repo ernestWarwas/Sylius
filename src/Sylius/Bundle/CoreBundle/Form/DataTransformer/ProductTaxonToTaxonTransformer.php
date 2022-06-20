@@ -32,7 +32,7 @@ final class ProductTaxonToTaxonTransformer implements DataTransformerInterface
     public function __construct(
         FactoryInterface $productTaxonFactory,
         RepositoryInterface $productTaxonRepository,
-        ProductInterface $product
+        ProductInterface $product,
     ) {
         $this->productTaxonFactory = $productTaxonFactory;
         $this->productTaxonRepository = $productTaxonRepository;
@@ -81,8 +81,8 @@ final class ProductTaxonToTaxonTransformer implements DataTransformerInterface
                 sprintf(
                     'Expected "%s", but got "%s"',
                     $expectedType,
-                    is_object($value) ? get_class($value) : gettype($value)
-                )
+                    is_object($value) ? get_class($value) : gettype($value),
+                ),
             );
         }
     }

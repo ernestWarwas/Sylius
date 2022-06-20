@@ -50,7 +50,7 @@ final class TaxonCollectionDataProviderSpec extends ObjectBehavior
         TaxonInterface $firstTaxon,
         TaxonInterface $secondTaxon,
         ChannelInterface $channel,
-        UserInterface $user
+        UserInterface $user,
     ): void {
         $userContext->getUser()->willReturn($user);
         $user->getRoles()->willReturn(['ROLE_USER']);
@@ -70,7 +70,7 @@ final class TaxonCollectionDataProviderSpec extends ObjectBehavior
         TaxonInterface $menuTaxon,
         TaxonInterface $firstTaxon,
         TaxonInterface $secondTaxon,
-        ChannelInterface $channel
+        ChannelInterface $channel,
     ): void {
         $userContext->getUser()->willReturn(null);
 
@@ -91,7 +91,7 @@ final class TaxonCollectionDataProviderSpec extends ObjectBehavior
         TaxonInterface $secondTaxon,
         TaxonInterface $thirdTaxon,
         ChannelInterface $channel,
-        UserInterface $user
+        UserInterface $user,
     ): void {
         $userContext->getUser()->willReturn($user);
         $user->getRoles()->willReturn(['ROLE_API_ACCESS']);

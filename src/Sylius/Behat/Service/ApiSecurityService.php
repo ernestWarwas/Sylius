@@ -42,7 +42,7 @@ final class ApiSecurityService implements SecurityServiceInterface
             [],
             [],
             ['CONTENT_TYPE' => 'application/json', 'HTTP_ACCEPT' => 'application/json'],
-            json_encode(['email' => $user->getEmail(), 'password' => 'sylius'])
+            json_encode(['email' => $user->getEmail(), 'password' => 'sylius']),
         );
 
         $response = $this->client->getResponse();
@@ -51,7 +51,7 @@ final class ApiSecurityService implements SecurityServiceInterface
         Assert::keyExists(
             $content,
             'token',
-            SprintfResponseEscaper::provideMessageWithEscapedResponseContent('Token not found.', $response)
+            SprintfResponseEscaper::provideMessageWithEscapedResponseContent('Token not found.', $response),
         );
 
         $token = $content['token'];

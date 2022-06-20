@@ -38,7 +38,7 @@ final class AddProductReviewHandler implements MessageHandlerInterface
         FactoryInterface $productReviewFactory,
         RepositoryInterface $productReviewRepository,
         ProductRepositoryInterface $productRepository,
-        CustomerProviderInterface $customerProvider
+        CustomerProviderInterface $customerProvider,
     ) {
         $this->productReviewFactory = $productReviewFactory;
         $this->productReviewRepository = $productReviewRepository;

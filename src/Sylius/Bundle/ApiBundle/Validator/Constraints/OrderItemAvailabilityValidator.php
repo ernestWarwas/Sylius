@@ -31,7 +31,7 @@ final class OrderItemAvailabilityValidator extends ConstraintValidator
 
     public function __construct(
         OrderRepositoryInterface $orderRepository,
-        AvailabilityCheckerInterface $availabilityChecker
+        AvailabilityCheckerInterface $availabilityChecker,
     ) {
         $this->orderRepository = $orderRepository;
         $this->availabilityChecker = $availabilityChecker;
@@ -55,7 +55,7 @@ final class OrderItemAvailabilityValidator extends ConstraintValidator
             if (!$this->availabilityChecker->isStockSufficient($variant, $orderItem->getQuantity())) {
                 $this->context->addViolation(
                     $constraint->message,
-                    ['%productVariantName%' => $variant->getName()]
+                    ['%productVariantName%' => $variant->getName()],
                 );
             }
         }

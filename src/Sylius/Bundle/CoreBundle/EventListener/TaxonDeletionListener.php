@@ -33,7 +33,7 @@ final class TaxonDeletionListener
     public function __construct(
         SessionInterface $session,
         ChannelRepositoryInterface $channelRepository,
-        TaxonAwareRuleUpdaterInterface ...$ruleUpdaters
+        TaxonAwareRuleUpdaterInterface ...$ruleUpdaters,
     ) {
         $this->session = $session;
         $this->channelRepository = $channelRepository;

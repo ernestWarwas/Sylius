@@ -41,7 +41,7 @@ final class CountryCollectionDataProviderSpec extends ObjectBehavior
         UserContextInterface $userContext,
         UserInterface $user,
         ChannelInterface $channel,
-        CountryInterface $country
+        CountryInterface $country,
     ): void {
         $userContext->getUser()->willReturn($user);
         $user->getRoles()->willReturn(['ROLE_USER']);
@@ -57,7 +57,7 @@ final class CountryCollectionDataProviderSpec extends ObjectBehavior
     function it_provides_countries_from_channel_if_there_is_no_logged_in_user(
         UserContextInterface $userContext,
         ChannelInterface $channel,
-        CountryInterface $country
+        CountryInterface $country,
     ): void {
         $userContext->getUser()->willReturn(null);
 
@@ -73,7 +73,7 @@ final class CountryCollectionDataProviderSpec extends ObjectBehavior
         RepositoryInterface $countryRepository,
         UserContextInterface $userContext,
         ChannelInterface $channel,
-        CountryInterface $country
+        CountryInterface $country,
     ): void {
         $userContext->getUser()->willReturn(null);
 
@@ -90,7 +90,7 @@ final class CountryCollectionDataProviderSpec extends ObjectBehavior
     function it_provides_all_countries_if_there_is_no_channel_in_context(
         RepositoryInterface $countryRepository,
         UserContextInterface $userContext,
-        CountryInterface $country
+        CountryInterface $country,
     ): void {
         $userContext->getUser()->willReturn(null);
 
@@ -107,7 +107,7 @@ final class CountryCollectionDataProviderSpec extends ObjectBehavior
         UserContextInterface $userContext,
         AdminUserInterface $user,
         ChannelInterface $channel,
-        CountryInterface $country
+        CountryInterface $country,
     ): void {
         $userContext->getUser()->willReturn($user);
         $user->getRoles()->willReturn(['ROLE_API_ACCESS']);

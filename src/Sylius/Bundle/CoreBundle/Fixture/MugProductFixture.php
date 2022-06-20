@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
+
 @trigger_error('The "MugProductFixture" class is deprecated since Sylius 1.5 Use new product fixtures class located at "src/Sylius/Bundle/CoreBundle/Fixture/" instead.', \E_USER_DEPRECATED);
 
 use Sylius\Bundle\FixturesBundle\Fixture\AbstractFixture;
@@ -43,7 +44,7 @@ class MugProductFixture extends AbstractFixture
         AbstractResourceFixture $productAttributeFixture,
         AbstractResourceFixture $productOptionFixture,
         AbstractResourceFixture $productFixture,
-        string $baseLocaleCode
+        string $baseLocaleCode,
     ) {
         $this->taxonFixture = $taxonFixture;
         $this->productAttributeFixture = $productAttributeFixture;

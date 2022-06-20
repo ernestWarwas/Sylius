@@ -22,7 +22,7 @@ final class SalesSummary implements SalesSummaryInterface
     private array $intervalsSalesMap = [];
 
     public function __construct(
-        array $salesData
+        array $salesData,
     ) {
         $this->intervalsSalesMap = $salesData;
     }

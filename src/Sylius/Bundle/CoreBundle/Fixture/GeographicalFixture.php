@@ -44,7 +44,7 @@ class GeographicalFixture extends AbstractFixture
         FactoryInterface $provinceFactory,
         ObjectManager $provinceManager,
         ZoneFactoryInterface $zoneFactory,
-        ObjectManager $zoneManager
+        ObjectManager $zoneManager,
     ) {
         $this->countryFactory = $countryFactory;
         $this->countryManager = $countryManager;
@@ -174,7 +174,7 @@ class GeographicalFixture extends AbstractFixture
                 throw new \InvalidArgumentException(sprintf(
                     'An exception was thrown during loading zone "%s" with code "%s"!',
                     $zoneName,
-                    $zoneCode
+                    $zoneCode,
                 ), 0, $exception);
             }
         }
@@ -241,7 +241,7 @@ class GeographicalFixture extends AbstractFixture
                 throw new \InvalidArgumentException(sprintf(
                     'Could not find country "%s", defined ones are: %s!',
                     $countryCode,
-                    implode(', ', $options['countries'])
+                    implode(', ', $options['countries']),
                 ));
             },
             ZoneInterface::TYPE_PROVINCE => function (string $provinceCode) use ($options): void {
@@ -257,7 +257,7 @@ class GeographicalFixture extends AbstractFixture
                 throw new \InvalidArgumentException(sprintf(
                     'Could not find province "%s", defined ones are: %s!',
                     $provinceCode,
-                    implode(', ', $options['provinces'])
+                    implode(', ', $options['provinces']),
                 ));
             },
             ZoneInterface::TYPE_ZONE => function (string $zoneCode) use ($options): void {
@@ -268,7 +268,7 @@ class GeographicalFixture extends AbstractFixture
                 throw new \InvalidArgumentException(sprintf(
                     'Could not find zone "%s", defined ones are: %s!',
                     $zoneCode,
-                    implode(', ', array_keys($options['zones']))
+                    implode(', ', array_keys($options['zones'])),
                 ));
             },
         ];

@@ -36,7 +36,7 @@ final class ProductsByChannelAndLocaleCodeExtension implements ContextAwareQuery
         QueryNameGeneratorInterface $queryNameGenerator,
         string $resourceClass,
         string $operationName = null,
-        array $context = []
+        array $context = [],
     ): void {
         if (!is_a($resourceClass, ProductInterface::class, true)) {
             return;

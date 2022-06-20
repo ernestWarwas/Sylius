@@ -25,7 +25,7 @@ final class OrderItemType extends AbstractResourceType
     public function __construct(
         string $dataClass,
         array $validationGroups,
-        DataMapperInterface $dataMapper
+        DataMapperInterface $dataMapper,
     ) {
         parent::__construct($dataClass, $validationGroups);
 

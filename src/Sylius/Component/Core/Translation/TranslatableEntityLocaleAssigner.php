@@ -27,7 +27,7 @@ final class TranslatableEntityLocaleAssigner implements TranslatableEntityLocale
 
     public function __construct(
         LocaleContextInterface $localeContext,
-        TranslationLocaleProviderInterface $translationLocaleProvider
+        TranslationLocaleProviderInterface $translationLocaleProvider,
     ) {
         $this->localeContext = $localeContext;
         $this->translationLocaleProvider = $translationLocaleProvider;

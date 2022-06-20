@@ -25,7 +25,7 @@ final class ProductNormalizer implements ContextAwareNormalizerInterface, Normal
 
     public function __construct(
         ProductVariantResolverInterface $defaultProductVariantResolver,
-        IriConverterInterface $iriConverter
+        IriConverterInterface $iriConverter,
     ) {
         $this->defaultProductVariantResolver = $defaultProductVariantResolver;
         $this->iriConverter = $iriConverter;

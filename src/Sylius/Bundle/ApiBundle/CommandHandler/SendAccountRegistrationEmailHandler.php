@@ -33,7 +33,7 @@ final class SendAccountRegistrationEmailHandler implements MessageHandlerInterfa
     public function __construct(
         UserRepositoryInterface $shopUserRepository,
         ChannelRepositoryInterface $channelRepository,
-        SenderInterface $emailSender
+        SenderInterface $emailSender,
     ) {
         $this->shopUserRepository = $shopUserRepository;
         $this->channelRepository = $channelRepository;
@@ -50,7 +50,7 @@ final class SendAccountRegistrationEmailHandler implements MessageHandlerInterfa
         $this->emailSender->send(
             Emails::USER_REGISTRATION,
             [$command->shopUserEmail],
-            ['user' => $shopUser, 'localeCode' => $command->localeCode, 'channel' => $channel]
+            ['user' => $shopUser, 'localeCode' => $command->localeCode, 'channel' => $channel],
         );
     }
 }

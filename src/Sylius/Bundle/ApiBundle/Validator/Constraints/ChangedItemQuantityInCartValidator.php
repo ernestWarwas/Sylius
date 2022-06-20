@@ -35,7 +35,7 @@ final class ChangedItemQuantityInCartValidator extends ConstraintValidator
     public function __construct(
         RepositoryInterface $orderItemRepository,
         OrderRepositoryInterface $orderRepository,
-        AvailabilityCheckerInterface $availabilityChecker
+        AvailabilityCheckerInterface $availabilityChecker,
     ) {
         $this->orderItemRepository = $orderItemRepository;
         $this->orderRepository = $orderRepository;
@@ -58,7 +58,7 @@ final class ChangedItemQuantityInCartValidator extends ConstraintValidator
         if ($productVariant === null) {
             $this->context->addViolation(
                 $constraint->productVariantNotLongerAvailable,
-                ['%productVariantName%' => $orderItem->getVariantName()]
+                ['%productVariantName%' => $orderItem->getVariantName()],
             );
 
             return;
@@ -71,7 +71,7 @@ final class ChangedItemQuantityInCartValidator extends ConstraintValidator
         if (!$product->isEnabled()) {
             $this->context->addViolation(
                 $constraint->productNotExistMessage,
-                ['%productName%' => $product->getName()]
+                ['%productName%' => $product->getName()],
             );
 
             return;
@@ -80,7 +80,7 @@ final class ChangedItemQuantityInCartValidator extends ConstraintValidator
         if (!$productVariant->isEnabled()) {
             $this->context->addViolation(
                 $constraint->productVariantNotLongerAvailable,
-                ['%productVariantName%' => $orderItem->getVariantName()]
+                ['%productVariantName%' => $orderItem->getVariantName()],
             );
 
             return;
@@ -89,7 +89,7 @@ final class ChangedItemQuantityInCartValidator extends ConstraintValidator
         if (!$this->availabilityChecker->isStockSufficient($productVariant, $value->quantity)) {
             $this->context->addViolation(
                 $constraint->productVariantNotSufficient,
-                ['%productVariantCode%' => $productVariantCode]
+                ['%productVariantCode%' => $productVariantCode],
             );
 
             return;
@@ -104,7 +104,7 @@ final class ChangedItemQuantityInCartValidator extends ConstraintValidator
         if (!$product->hasChannel($channel)) {
             $this->context->addViolation(
                 $constraint->productNotExistMessage,
-                ['%productName%' => $product->getName()]
+                ['%productName%' => $product->getName()],
             );
         }
     }

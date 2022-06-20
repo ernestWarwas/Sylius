@@ -36,7 +36,7 @@ final class PromotionCouponFactory implements PromotionCouponFactoryInterface
     {
         Assert::true(
             $promotion->isCouponBased(),
-            sprintf('Promotion with name %s is not coupon based.', $promotion->getName())
+            sprintf('Promotion with name %s is not coupon based.', $promotion->getName()),
         );
 
         /** @var PromotionCouponInterface $coupon */

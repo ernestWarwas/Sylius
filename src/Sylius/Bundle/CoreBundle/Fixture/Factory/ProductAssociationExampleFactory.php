@@ -35,7 +35,7 @@ class ProductAssociationExampleFactory extends AbstractExampleFactory implements
     public function __construct(
         FactoryInterface $productAssociationFactory,
         ProductAssociationTypeRepositoryInterface $productAssociationTypeRepository,
-        ProductRepositoryInterface $productRepository
+        ProductRepositoryInterface $productRepository,
     ) {
         $this->productAssociationFactory = $productAssociationFactory;
         $this->productAssociationTypeRepository = $productAssociationTypeRepository;

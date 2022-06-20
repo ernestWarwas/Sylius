@@ -43,7 +43,7 @@ final class CartShippingMethodsSubresourceDataProvider implements RestrictedData
         ShipmentRepositoryInterface $shipmentRepository,
         ShippingMethodsResolverInterface $shippingMethodsResolver,
         ServiceRegistryInterface $calculators,
-        CartShippingMethodFactoryInterface $cartShippingMethodFactory
+        CartShippingMethodFactoryInterface $cartShippingMethodFactory,
     ) {
         $this->orderRepository = $orderRepository;
         $this->shipmentRepository = $shipmentRepository;
@@ -97,7 +97,7 @@ final class CartShippingMethodsSubresourceDataProvider implements RestrictedData
 
             $cartShippingMethods[] = $this->cartShippingMethodFactory->create(
                 $shippingMethod,
-                $cost
+                $cost,
             );
         }
 

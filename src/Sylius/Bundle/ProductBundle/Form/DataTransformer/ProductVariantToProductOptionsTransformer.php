@@ -44,10 +44,10 @@ final class ProductVariantToProductOptionsTransformer implements DataTransformer
 
         return array_combine(
             array_map(
-                fn(ProductOptionValueInterface $productOptionValue): string => (string) $productOptionValue->getOptionCode(),
-                $value->getOptionValues()->toArray()
+                fn (ProductOptionValueInterface $productOptionValue): string => (string) $productOptionValue->getOptionCode(),
+                $value->getOptionValues()->toArray(),
             ),
-            $value->getOptionValues()->toArray()
+            $value->getOptionValues()->toArray(),
         );
     }
 
@@ -84,7 +84,7 @@ final class ProductVariantToProductOptionsTransformer implements DataTransformer
         throw new TransformationFailedException(sprintf(
             'Variant "%s" not found for product %s',
             !empty($optionValues[0]) ? $optionValues[0]->getCode() : '',
-            $this->product->getCode()
+            $this->product->getCode(),
         ));
     }
 }

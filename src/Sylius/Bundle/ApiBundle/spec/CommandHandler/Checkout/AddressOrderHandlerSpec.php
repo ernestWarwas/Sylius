@@ -34,14 +34,14 @@ final class AddressOrderHandlerSpec extends ObjectBehavior
         CustomerRepositoryInterface $customerRepository,
         FactoryInterface $customerFactory,
         ObjectManager $manager,
-        StateMachineFactoryInterface $stateMachineFactory
+        StateMachineFactoryInterface $stateMachineFactory,
     ): void {
         $this->beConstructedWith(
             $orderRepository,
             $customerRepository,
             $customerFactory,
             $manager,
-            $stateMachineFactory
+            $stateMachineFactory,
         );
     }
 
@@ -51,7 +51,7 @@ final class AddressOrderHandlerSpec extends ObjectBehavior
         CustomerInterface $customer,
         AddressInterface $billingAddress,
         OrderInterface $order,
-        StateMachineInterface $stateMachine
+        StateMachineInterface $stateMachine,
     ): void {
         $addressOrder = new AddressOrder('r2d2@droid.com', $billingAddress->getWrappedObject());
         $addressOrder->setOrderTokenValue('ORDERTOKEN');
@@ -80,12 +80,12 @@ final class AddressOrderHandlerSpec extends ObjectBehavior
         AddressInterface $billingAddress,
         AddressInterface $shippingAddress,
         OrderInterface $order,
-        StateMachineInterface $stateMachine
+        StateMachineInterface $stateMachine,
     ): void {
         $addressOrder = new AddressOrder(
             'r2d2@droid.com',
             $billingAddress->getWrappedObject(),
-            $shippingAddress->getWrappedObject()
+            $shippingAddress->getWrappedObject(),
         );
         $addressOrder->setOrderTokenValue('ORDERTOKEN');
 
@@ -118,12 +118,12 @@ final class AddressOrderHandlerSpec extends ObjectBehavior
         AddressInterface $billingAddress,
         AddressInterface $shippingAddress,
         OrderInterface $order,
-        StateMachineInterface $stateMachine
+        StateMachineInterface $stateMachine,
     ): void {
         $addressOrder = new AddressOrder(
             'r2d2@droid.com',
             $billingAddress->getWrappedObject(),
-            $shippingAddress->getWrappedObject()
+            $shippingAddress->getWrappedObject(),
         );
         $addressOrder->setOrderTokenValue('ORDERTOKEN');
 
@@ -158,12 +158,12 @@ final class AddressOrderHandlerSpec extends ObjectBehavior
         AddressInterface $billingAddress,
         AddressInterface $shippingAddress,
         OrderInterface $order,
-        StateMachineInterface $stateMachine
+        StateMachineInterface $stateMachine,
     ): void {
         $addressOrder = new AddressOrder(
             'r2d2@droid.com',
             $billingAddress->getWrappedObject(),
-            $shippingAddress->getWrappedObject()
+            $shippingAddress->getWrappedObject(),
         );
         $addressOrder->setOrderTokenValue('ORDERTOKEN');
 
@@ -193,12 +193,12 @@ final class AddressOrderHandlerSpec extends ObjectBehavior
         AddressInterface $shippingAddress,
         StateMachineFactoryInterface $stateMachineFactory,
         OrderInterface $order,
-        StateMachineInterface $stateMachine
+        StateMachineInterface $stateMachine,
     ): void {
         $addressOrder = new AddressOrder(
             null,
             $billingAddress->getWrappedObject(),
-            $shippingAddress->getWrappedObject()
+            $shippingAddress->getWrappedObject(),
         );
         $addressOrder->setOrderTokenValue('ORDERTOKEN');
 
@@ -215,12 +215,12 @@ final class AddressOrderHandlerSpec extends ObjectBehavior
     function it_throws_an_exception_if_order_does_not_exist(
         OrderRepositoryInterface $orderRepository,
         AddressInterface $billingAddress,
-        AddressInterface $shippingAddress
+        AddressInterface $shippingAddress,
     ): void {
         $addressOrder = new AddressOrder(
             'r2d2@droid.com',
             $billingAddress->getWrappedObject(),
-            $shippingAddress->getWrappedObject()
+            $shippingAddress->getWrappedObject(),
         );
         $addressOrder->setOrderTokenValue('ORDERTOKEN');
 
@@ -235,12 +235,12 @@ final class AddressOrderHandlerSpec extends ObjectBehavior
         AddressInterface $billingAddress,
         AddressInterface $shippingAddress,
         OrderInterface $order,
-        StateMachineInterface $stateMachine
+        StateMachineInterface $stateMachine,
     ): void {
         $addressOrder = new AddressOrder(
             'r2d2@droid.com',
             $billingAddress->getWrappedObject(),
-            $shippingAddress->getWrappedObject()
+            $shippingAddress->getWrappedObject(),
         );
         $addressOrder->setOrderTokenValue('ORDERTOKEN');
 

@@ -32,7 +32,7 @@ final class TaxonSlugController
     public function __construct(
         TaxonSlugGeneratorInterface $taxonSlugGenerator,
         RepositoryInterface $taxonRepository,
-        FactoryInterface $taxonFactory
+        FactoryInterface $taxonFactory,
     ) {
         $this->taxonSlugGenerator = $taxonSlugGenerator;
         $this->taxonRepository = $taxonRepository;

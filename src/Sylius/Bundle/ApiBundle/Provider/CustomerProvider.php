@@ -30,7 +30,7 @@ final class CustomerProvider implements CustomerProviderInterface
     public function __construct(
         CanonicalizerInterface $canonicalizer,
         FactoryInterface $customerFactory,
-        CustomerRepositoryInterface $customerRepository
+        CustomerRepositoryInterface $customerRepository,
     ) {
         $this->canonicalizer = $canonicalizer;
         $this->customerFactory = $customerFactory;

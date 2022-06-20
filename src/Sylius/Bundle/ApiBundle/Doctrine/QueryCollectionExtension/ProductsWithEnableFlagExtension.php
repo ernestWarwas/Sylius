@@ -34,7 +34,7 @@ final class ProductsWithEnableFlagExtension implements ContextAwareQueryCollecti
         QueryNameGeneratorInterface $queryNameGenerator,
         string $resourceClass,
         ?string $operationName = null,
-        array $context = []
+        array $context = [],
     ): void {
         if (!is_a($resourceClass, ProductInterface::class, true)) {
             return;

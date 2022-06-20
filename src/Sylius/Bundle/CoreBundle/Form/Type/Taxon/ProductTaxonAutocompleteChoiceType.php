@@ -43,9 +43,9 @@ final class ProductTaxonAutocompleteChoiceType extends AbstractType
                     new ProductTaxonToTaxonTransformer(
                         $this->productTaxonFactory,
                         $this->productTaxonRepository,
-                        $options['product']
-                    )
-                )
+                        $options['product'],
+                    ),
+                ),
             );
         }
 
@@ -54,8 +54,8 @@ final class ProductTaxonAutocompleteChoiceType extends AbstractType
                 new ProductTaxonToTaxonTransformer(
                     $this->productTaxonFactory,
                     $this->productTaxonRepository,
-                    $options['product']
-                )
+                    $options['product'],
+                ),
             );
         }
     }

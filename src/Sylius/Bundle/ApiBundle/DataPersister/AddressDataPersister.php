@@ -29,7 +29,7 @@ final class AddressDataPersister implements ContextAwareDataPersisterInterface
 
     public function __construct(
         ContextAwareDataPersisterInterface $decoratedDataPersister,
-        UserContextInterface $userContext
+        UserContextInterface $userContext,
     ) {
         $this->decoratedDataPersister = $decoratedDataPersister;
         $this->userContext = $userContext;

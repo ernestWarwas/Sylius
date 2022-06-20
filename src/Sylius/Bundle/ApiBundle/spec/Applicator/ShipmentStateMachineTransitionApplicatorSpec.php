@@ -32,7 +32,7 @@ final class ShipmentStateMachineTransitionApplicatorSpec extends ObjectBehavior
         StateMachineFactoryInterface $stateMachineFactory,
         ShipmentInterface $shipment,
         StateMachine $stateMachine,
-        EventDispatcherInterface $eventDispatcher
+        EventDispatcherInterface $eventDispatcher,
     ): void {
         $stateMachineFactory->get($shipment, ShipmentTransitions::GRAPH)->willReturn($stateMachine);
         $stateMachine->apply(ShipmentTransitions::TRANSITION_SHIP)->shouldBeCalled();

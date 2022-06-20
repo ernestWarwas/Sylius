@@ -32,7 +32,7 @@ final class CustomerCheckoutGuestType extends AbstractResourceType
         string $dataClass,
         array $validationGroups,
         RepositoryInterface $customerRepository,
-        FactoryInterface $customerFactory
+        FactoryInterface $customerFactory,
     ) {
         parent::__construct($dataClass, $validationGroups);
 

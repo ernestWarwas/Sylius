@@ -43,7 +43,7 @@ final class AddressOrderHandler implements MessageHandlerInterface
         CustomerRepositoryInterface $customerRepository,
         FactoryInterface $customerFactory,
         ObjectManager $manager,
-        StateMachineFactoryInterface $stateMachineFactory
+        StateMachineFactoryInterface $stateMachineFactory,
     ) {
         $this->orderRepository = $orderRepository;
         $this->customerRepository = $customerRepository;
@@ -64,7 +64,7 @@ final class AddressOrderHandler implements MessageHandlerInterface
 
         Assert::true(
             $stateMachine->can(OrderCheckoutTransitions::TRANSITION_ADDRESS),
-            sprintf('Order with %s token cannot be addressed.', $tokenValue)
+            sprintf('Order with %s token cannot be addressed.', $tokenValue),
         );
 
         if (null === $order->getCustomer()) {

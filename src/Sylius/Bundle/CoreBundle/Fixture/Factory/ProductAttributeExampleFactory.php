@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture\Factory;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Sylius\Component\Attribute\Factory\AttributeFactoryInterface;
 use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Locale\Model\LocaleInterface;
@@ -38,7 +38,7 @@ class ProductAttributeExampleFactory extends AbstractExampleFactory implements E
     public function __construct(
         AttributeFactoryInterface $productAttributeFactory,
         RepositoryInterface $localeRepository,
-        array $attributeTypes
+        array $attributeTypes,
     ) {
         $this->productAttributeFactory = $productAttributeFactory;
         $this->localeRepository = $localeRepository;
@@ -81,9 +81,9 @@ class ProductAttributeExampleFactory extends AbstractExampleFactory implements E
                 return $words;
             })
             ->setDefault('translatable', true)
-            ->setDefault('code', fn(Options $options): string => StringInflector::nameToCode($options['name']))
-            ->setDefault('type', fn(Options $options): string => $this->faker->randomElement(array_keys($this->attributeTypes)))
-            ->setDefault('configuration', fn(Options $options): array => [])
+            ->setDefault('code', fn (Options $options): string => StringInflector::nameToCode($options['name']))
+            ->setDefault('type', fn (Options $options): string => $this->faker->randomElement(array_keys($this->attributeTypes)))
+            ->setDefault('configuration', fn (Options $options): array => [])
             ->setAllowedValues('type', array_keys($this->attributeTypes))
         ;
     }

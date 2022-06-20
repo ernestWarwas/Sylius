@@ -45,7 +45,7 @@ final class OrderContext implements Context
         ApiClientInterface $client,
         ResponseCheckerInterface $responseChecker,
         SharedStorageInterface $sharedStorage,
-        IriConverterInterface $iriConverter
+        IriConverterInterface $iriConverter,
     ) {
         $this->client = $client;
         $this->responseChecker = $responseChecker;
@@ -65,10 +65,10 @@ final class OrderContext implements Context
             \sprintf(
                 '/api/v2/shop/account/orders/%s/payments/%s',
                 $order->getTokenValue(),
-                (string) $order->getPayments()->first()->getId()
+                (string) $order->getPayments()->first()->getId(),
             ),
             HttpRequest::METHOD_PATCH,
-            $this->client->getToken()
+            $this->client->getToken(),
         );
 
         $request->setContent(['paymentMethod' => $this->iriConverter->getIriFromItem($paymentMethod)]);
@@ -106,11 +106,11 @@ final class OrderContext implements Context
         Assert::same($response->getStatusCode(), Response::HTTP_OK);
         Assert::same(
             $this->responseChecker->getValue($this->client->getLastResponse(), 'checkoutState'),
-            OrderCheckoutStates::STATE_COMPLETED
+            OrderCheckoutStates::STATE_COMPLETED,
         );
         Assert::same(
             $this->sharedStorage->get('order_number'),
-            $this->responseChecker->getValue($this->client->getLastResponse(), 'number')
+            $this->responseChecker->getValue($this->client->getLastResponse(), 'number'),
         );
     }
 
@@ -131,7 +131,7 @@ final class OrderContext implements Context
         string $postcode,
         string $city,
         CountryInterface $country,
-        string $addressType
+        string $addressType,
     ): void {
         $address = $this->responseChecker->getValue($this->client->getLastResponse(), ($addressType . 'Address'));
 
@@ -176,7 +176,7 @@ final class OrderContext implements Context
     public function theShipmentStatusShouldBe(
         string $elementType,
         string $elementStatus,
-        int $position = 0
+        int $position = 0,
     ): void {
         $resources = $this->responseChecker->getValue($this->client->getLastResponse(), $elementType . 's');
 
@@ -200,9 +200,9 @@ final class OrderContext implements Context
             StringInflector::codeToName(
                 $this->responseChecker->getValue(
                     $this->client->getLastResponse(),
-                    $elementType . 'State'
-                )
-            )
+                    $elementType . 'State',
+                ),
+            ),
         );
     }
 
@@ -327,7 +327,7 @@ final class OrderContext implements Context
     {
         $response = $this->client->customAction(
             sprintf('/api/v2/shop/orders/%s/items/%s/adjustments', $this->sharedStorage->get('cart_token'), $itemId),
-            HttpRequest::METHOD_GET
+            HttpRequest::METHOD_GET,
         );
 
         return $this->responseChecker->getCollection($response);
@@ -352,7 +352,7 @@ final class OrderContext implements Context
         if (!isset($item['variant'])) {
             throw new \InvalidArgumentException(
                 'Expected array to have variant key, but this key is missing. Current array: ' .
-                json_encode($item)
+                json_encode($item),
             );
         }
 

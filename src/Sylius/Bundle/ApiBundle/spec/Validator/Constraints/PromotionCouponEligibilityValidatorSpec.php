@@ -34,13 +34,13 @@ final class PromotionCouponEligibilityValidatorSpec extends ObjectBehavior
         PromotionCouponRepositoryInterface $promotionCouponRepository,
         OrderRepositoryInterface $orderRepository,
         PromotionEligibilityCheckerInterface $promotionChecker,
-        PromotionCouponEligibilityCheckerInterface $promotionCouponChecker
+        PromotionCouponEligibilityCheckerInterface $promotionCouponChecker,
     ): void {
         $this->beConstructedWith(
             $promotionCouponRepository,
             $orderRepository,
             $promotionChecker,
-            $promotionCouponChecker
+            $promotionCouponChecker,
         );
     }
 
@@ -63,7 +63,7 @@ final class PromotionCouponEligibilityValidatorSpec extends ObjectBehavior
         PromotionInterface $promotion,
         OrderRepositoryInterface $orderRepository,
         OrderInterface $cart,
-        ExecutionContextInterface $executionContext
+        ExecutionContextInterface $executionContext,
     ): void {
         $this->initialize($executionContext);
         $constraint = new PromotionCouponEligibility();
@@ -96,7 +96,7 @@ final class PromotionCouponEligibilityValidatorSpec extends ObjectBehavior
         OrderRepositoryInterface $orderRepository,
         OrderInterface $cart,
         ExecutionContextInterface $executionContext,
-        ConstraintViolationBuilderInterface $constraintViolationBuilder
+        ConstraintViolationBuilderInterface $constraintViolationBuilder,
     ): void {
         $this->initialize($executionContext);
         $constraint = new PromotionCouponEligibility();
@@ -128,7 +128,7 @@ final class PromotionCouponEligibilityValidatorSpec extends ObjectBehavior
         OrderRepositoryInterface $orderRepository,
         OrderInterface $cart,
         ExecutionContextInterface $executionContext,
-        ConstraintViolationBuilderInterface $constraintViolationBuilder
+        ConstraintViolationBuilderInterface $constraintViolationBuilder,
     ): void {
         $this->initialize($executionContext);
         $constraint = new PromotionCouponEligibility();

@@ -30,7 +30,7 @@ final class FixedDiscountPromotionActionCommand extends DiscountPromotionActionC
 
     public function __construct(
         ProportionalIntegerDistributorInterface $proportionalIntegerDistributor,
-        UnitsPromotionAdjustmentsApplicatorInterface $unitsPromotionAdjustmentsApplicator
+        UnitsPromotionAdjustmentsApplicatorInterface $unitsPromotionAdjustmentsApplicator,
     ) {
         $this->proportionalDistributor = $proportionalIntegerDistributor;
         $this->unitsPromotionAdjustmentsApplicator = $unitsPromotionAdjustmentsApplicator;
@@ -58,7 +58,7 @@ final class FixedDiscountPromotionActionCommand extends DiscountPromotionActionC
 
         $promotionAmount = $this->calculateAdjustmentAmount(
             $subject->getPromotionSubjectTotal(),
-            $configuration[$channelCode]['amount']
+            $configuration[$channelCode]['amount'],
         );
 
         if (0 === $promotionAmount) {

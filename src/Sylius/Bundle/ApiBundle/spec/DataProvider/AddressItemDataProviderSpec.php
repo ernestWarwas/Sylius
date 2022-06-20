@@ -29,7 +29,7 @@ final class AddressItemDataProviderSpec extends ObjectBehavior
 {
     function let(
         AddressRepositoryInterface $addressRepository,
-        UserContextInterface $userContext
+        UserContextInterface $userContext,
     ): void {
         $this->beConstructedWith($addressRepository, $userContext);
     }
@@ -45,7 +45,7 @@ final class AddressItemDataProviderSpec extends ObjectBehavior
         UserContextInterface $userContext,
         ShopUserInterface $shopUser,
         CustomerInterface $customer,
-        AddressInterface $address
+        AddressInterface $address,
     ) {
         $userContext->getUser()->willReturn($shopUser);
 
@@ -64,7 +64,7 @@ final class AddressItemDataProviderSpec extends ObjectBehavior
         AddressRepositoryInterface $addressRepository,
         UserContextInterface $userContext,
         AdminUserInterface $adminUser,
-        AddressInterface $address
+        AddressInterface $address,
     ) {
         $userContext->getUser()->willReturn($adminUser);
 
@@ -78,7 +78,7 @@ final class AddressItemDataProviderSpec extends ObjectBehavior
     function it_return_null_for_shop_user_with_null_customer(
         AddressRepositoryInterface $addressRepository,
         UserContextInterface $userContext,
-        ShopUserInterface $shopUser
+        ShopUserInterface $shopUser,
     ) {
         $userContext->getUser()->willReturn($shopUser);
 
@@ -94,7 +94,7 @@ final class AddressItemDataProviderSpec extends ObjectBehavior
         AddressRepositoryInterface $addressRepository,
         UserContextInterface $userContext,
         CustomerInterface $customer,
-        ShopUserInterface $shopUser
+        ShopUserInterface $shopUser,
     ) {
         $userContext->getUser()->willReturn($shopUser);
 
@@ -108,7 +108,7 @@ final class AddressItemDataProviderSpec extends ObjectBehavior
 
     function it_throws_an_exception_if_there_is_not_logged_in_user(
         AddressRepositoryInterface $addressRepository,
-        UserContextInterface $userContext
+        UserContextInterface $userContext,
     ): void {
         $userContext->getUser()->willReturn(null);
 

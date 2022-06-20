@@ -37,7 +37,7 @@ final class AddressesExtensionSpec extends ObjectBehavior
         QueryBuilder $queryBuilder,
         QueryNameGeneratorInterface $queryNameGenerator,
         ShopUserInterface $shopUser,
-        CustomerInterface $customer
+        CustomerInterface $customer,
     ): void {
         $userContext->getUser()->willReturn($shopUser);
         $shopUser->getCustomer()->willReturn($customer);
@@ -53,7 +53,7 @@ final class AddressesExtensionSpec extends ObjectBehavior
             $queryNameGenerator,
             AddressInterface::class,
             Request::METHOD_GET,
-            []
+            [],
         );
     }
 
@@ -61,7 +61,7 @@ final class AddressesExtensionSpec extends ObjectBehavior
         UserContextInterface $userContext,
         QueryBuilder $queryBuilder,
         QueryNameGeneratorInterface $queryNameGenerator,
-        AdminUserInterface $adminUser
+        AdminUserInterface $adminUser,
     ): void {
         $userContext->getUser()->willReturn($adminUser);
         $adminUser->getRoles()->willReturn(['ROLE_API_ACCESS']);
@@ -73,14 +73,14 @@ final class AddressesExtensionSpec extends ObjectBehavior
             $queryNameGenerator,
             AddressInterface::class,
             Request::METHOD_GET,
-            []
+            [],
         );
     }
 
     function it_throws_an_exception_if_there_is_not_logged_in_user(
         UserContextInterface $userContext,
         QueryBuilder $queryBuilder,
-        QueryNameGeneratorInterface $queryNameGenerator
+        QueryNameGeneratorInterface $queryNameGenerator,
     ): void {
         $userContext->getUser()->willReturn(null);
 
@@ -96,7 +96,7 @@ final class AddressesExtensionSpec extends ObjectBehavior
                     AddressInterface::class,
                     Request::METHOD_GET,
                     [],
-                ]
+                ],
             )
         ;
     }
@@ -105,7 +105,7 @@ final class AddressesExtensionSpec extends ObjectBehavior
         UserContextInterface $userContext,
         QueryBuilder $queryBuilder,
         QueryNameGeneratorInterface $queryNameGenerator,
-        AdminUserInterface $adminUser
+        AdminUserInterface $adminUser,
     ): void {
         $userContext->getUser()->willReturn($adminUser);
         $adminUser->getRoles()->willReturn([]);
@@ -122,7 +122,7 @@ final class AddressesExtensionSpec extends ObjectBehavior
                     AddressInterface::class,
                     Request::METHOD_GET,
                     [],
-                ]
+                ],
             )
         ;
     }

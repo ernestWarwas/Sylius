@@ -27,7 +27,7 @@ final class ApplyCouponToCartHandlerSpec extends ObjectBehavior
     function let(
         OrderRepositoryInterface $orderRepository,
         PromotionCouponRepositoryInterface $promotionCouponRepository,
-        OrderProcessorInterface $orderProcessor
+        OrderProcessorInterface $orderProcessor,
     ) {
         $this->beConstructedWith($orderRepository, $promotionCouponRepository, $orderProcessor);
     }
@@ -42,7 +42,7 @@ final class ApplyCouponToCartHandlerSpec extends ObjectBehavior
         PromotionCouponRepositoryInterface $promotionCouponRepository,
         OrderProcessorInterface $orderProcessor,
         OrderInterface $cart,
-        PromotionCouponInterface $promotionCoupon
+        PromotionCouponInterface $promotionCoupon,
     ): void {
         $orderRepository->findCartByTokenValue('cart')->willReturn($cart);
 
@@ -60,7 +60,7 @@ final class ApplyCouponToCartHandlerSpec extends ObjectBehavior
         PromotionCouponRepositoryInterface $promotionCouponRepository,
         OrderProcessorInterface $orderProcessor,
         OrderInterface $cart,
-        PromotionCouponInterface $promotionCoupon
+        PromotionCouponInterface $promotionCoupon,
     ): void {
         $orderRepository->findCartByTokenValue('cart')->willReturn(null);
 
@@ -71,14 +71,15 @@ final class ApplyCouponToCartHandlerSpec extends ObjectBehavior
         $orderProcessor->process($cart)->shouldNotBeCalled();
 
         $this->shouldThrow(\InvalidArgumentException::class)
-            ->during('__invoke', [ApplyCouponToCart::createFromData('cart', 'couponCode')]);
+            ->during('__invoke', [ApplyCouponToCart::createFromData('cart', 'couponCode')])
+        ;
     }
 
     function it_throws_exception_if_promotion_coupon_is_not_found(
         OrderRepositoryInterface $orderRepository,
         PromotionCouponRepositoryInterface $promotionCouponRepository,
         OrderProcessorInterface $orderProcessor,
-        OrderInterface $cart
+        OrderInterface $cart,
     ): void {
         $orderRepository->findCartByTokenValue('cart')->willReturn($cart);
 
@@ -89,14 +90,15 @@ final class ApplyCouponToCartHandlerSpec extends ObjectBehavior
         $orderProcessor->process($cart)->shouldNotBeCalled();
 
         $this->shouldThrow(\InvalidArgumentException::class)
-            ->during('__invoke', [ApplyCouponToCart::createFromData('cart', 'couponCode')]);
+            ->during('__invoke', [ApplyCouponToCart::createFromData('cart', 'couponCode')])
+        ;
     }
 
     function it_removes_coupon_if_passed_promotion_coupon_code_is_null(
         OrderRepositoryInterface $orderRepository,
         PromotionCouponRepositoryInterface $promotionCouponRepository,
         OrderProcessorInterface $orderProcessor,
-        OrderInterface $cart
+        OrderInterface $cart,
     ): void {
         $orderRepository->findCartByTokenValue('cart')->willReturn($cart);
 

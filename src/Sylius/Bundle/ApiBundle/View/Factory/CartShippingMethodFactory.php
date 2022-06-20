@@ -22,7 +22,7 @@ final class CartShippingMethodFactory implements CartShippingMethodFactoryInterf
 {
     public function create(
         ShippingMethodInterface $shippingMethod,
-        int $cost
+        int $cost,
     ): CartShippingMethodInterface {
         return new CartShippingMethod($shippingMethod, $cost);
     }

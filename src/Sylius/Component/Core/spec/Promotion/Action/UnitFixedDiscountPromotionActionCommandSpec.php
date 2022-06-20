@@ -34,13 +34,13 @@ final class UnitFixedDiscountPromotionActionCommandSpec extends ObjectBehavior
         FactoryInterface $adjustmentFactory,
         FilterInterface $priceRangeFilter,
         FilterInterface $taxonFilter,
-        FilterInterface $productFilter
+        FilterInterface $productFilter,
     ): void {
         $this->beConstructedWith(
             $adjustmentFactory,
             $priceRangeFilter,
             $taxonFilter,
-            $productFilter
+            $productFilter,
         );
     }
 
@@ -61,7 +61,7 @@ final class UnitFixedDiscountPromotionActionCommandSpec extends ObjectBehavior
         OrderItemInterface $orderItem,
         OrderItemUnitInterface $unit1,
         OrderItemUnitInterface $unit2,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $order->getChannel()->willReturn($channel);
         $channel->getCode()->willReturn('WEB_US');
@@ -108,7 +108,7 @@ final class UnitFixedDiscountPromotionActionCommandSpec extends ObjectBehavior
         FilterInterface $productFilter,
         OrderInterface $order,
         OrderItemInterface $orderItem,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $order->getChannel()->willReturn($channel);
         $channel->getCode()->willReturn('WEB_US');
@@ -129,7 +129,7 @@ final class UnitFixedDiscountPromotionActionCommandSpec extends ObjectBehavior
         OrderInterface $order,
         OrderItemUnitInterface $unit1,
         OrderItemUnitInterface $unit2,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $order->getChannel()->willReturn($channel);
         $channel->getCode()->willReturn('WEB_US');
@@ -154,7 +154,7 @@ final class UnitFixedDiscountPromotionActionCommandSpec extends ObjectBehavior
         OrderItemInterface $orderItem,
         OrderItemUnitInterface $unit1,
         OrderItemUnitInterface $unit2,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $order->getChannel()->willReturn($channel);
         $channel->getCode()->willReturn('WEB_US');
@@ -198,7 +198,7 @@ final class UnitFixedDiscountPromotionActionCommandSpec extends ObjectBehavior
         ChannelInterface $channel,
         FactoryInterface $adjustmentFactory,
         OrderInterface $order,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $order->getChannel()->willReturn($channel);
         $channel->getCode()->willReturn('WEB_US');
@@ -210,7 +210,7 @@ final class UnitFixedDiscountPromotionActionCommandSpec extends ObjectBehavior
 
     function it_throws_an_exception_if_passed_subject_to_execute_is_not_order(
         PromotionSubjectInterface $subject,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $this
             ->shouldThrow(UnexpectedTypeException::class)
@@ -225,7 +225,7 @@ final class UnitFixedDiscountPromotionActionCommandSpec extends ObjectBehavior
         OrderInterface $order,
         OrderItemInterface $orderItem,
         OrderItemUnitInterface $unit,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $order->getChannel()->willReturn($channel);
         $channel->getCode()->willReturn('WEB_US');
@@ -238,7 +238,7 @@ final class UnitFixedDiscountPromotionActionCommandSpec extends ObjectBehavior
             new ArrayCollection([
                 $promotionAdjustment1->getWrappedObject(),
                 $promotionAdjustment2->getWrappedObject(),
-            ])
+            ]),
         )
         ;
 
@@ -255,7 +255,7 @@ final class UnitFixedDiscountPromotionActionCommandSpec extends ObjectBehavior
 
     function it_throws_an_exception_if_passed_subject_to_revert_is_not_order(
         PromotionSubjectInterface $subject,
-        PromotionInterface $promotion
+        PromotionInterface $promotion,
     ): void {
         $this
             ->shouldThrow(UnexpectedTypeException::class)

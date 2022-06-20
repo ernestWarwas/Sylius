@@ -29,7 +29,7 @@ final class ChangePaymentMethodHandler implements MessageHandlerInterface
 
     public function __construct(
         PaymentMethodChangerInterface $commandPaymentMethodChanger,
-        OrderRepositoryInterface $orderRepository
+        OrderRepositoryInterface $orderRepository,
     ) {
         $this->paymentMethodChanger = $commandPaymentMethodChanger;
         $this->orderRepository = $orderRepository;
@@ -45,7 +45,7 @@ final class ChangePaymentMethodHandler implements MessageHandlerInterface
         return $this->paymentMethodChanger->changePaymentMethod(
             $changePaymentMethod->paymentMethodCode,
             $changePaymentMethod->paymentId,
-            $order
+            $order,
         );
     }
 }

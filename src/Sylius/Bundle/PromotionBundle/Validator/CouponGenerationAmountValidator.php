@@ -48,7 +48,7 @@ final class CouponGenerationAmountValidator extends ConstraintValidator
                     '%expectedAmount%' => $value->getAmount(),
                     '%codeLength%' => $value->getCodeLength(),
                     '%possibleAmount%' => $this->generationPolicy->getPossibleGenerationAmount($value),
-                ]
+                ],
             );
         }
     }

@@ -40,7 +40,7 @@ class UpdateSimpleProductPage extends BaseUpdatePage implements UpdateSimpleProd
         if ($this->getDriver() instanceof Selenium2Driver || $this->getDriver() instanceof ChromeDriver) {
             SlugGenerationHelper::waitForSlugGeneration(
                 $this->getSession(),
-                $this->getElement('slug', ['%locale%' => $localeCode])
+                $this->getElement('slug', ['%locale%' => $localeCode]),
             );
         }
     }
@@ -152,7 +152,7 @@ class UpdateSimpleProductPage extends BaseUpdatePage implements UpdateSimpleProd
     {
         SlugGenerationHelper::enableSlugModification(
             $this->getSession(),
-            $this->getElement('toggle_slug_modification_button', ['%locale%' => $locale])
+            $this->getElement('toggle_slug_modification_button', ['%locale%' => $locale]),
         );
     }
 
@@ -219,7 +219,7 @@ class UpdateSimpleProductPage extends BaseUpdatePage implements UpdateSimpleProd
         if (null !== $imageTypeElement && null !== $imageSourceElement) {
             $this->saveImageUrlForType(
                 $imageTypeElement->getValue(),
-                $imageSourceElement->getAttribute('src')
+                $imageSourceElement->getAttribute('src'),
             );
         }
         $imageElement->clickLink('Delete');
@@ -244,7 +244,7 @@ class UpdateSimpleProductPage extends BaseUpdatePage implements UpdateSimpleProd
     {
         return SlugGenerationHelper::isSlugReadonly(
             $this->getSession(),
-            $this->getElement('slug', ['%locale%' => $locale])
+            $this->getElement('slug', ['%locale%' => $locale]),
         );
     }
 

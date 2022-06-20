@@ -25,7 +25,7 @@ final class ShippingMethodsResolver implements ShippingMethodsResolverInterface
 
     public function __construct(
         ObjectRepository $shippingMethodRepository,
-        ShippingMethodEligibilityCheckerInterface $eligibilityChecker
+        ShippingMethodEligibilityCheckerInterface $eligibilityChecker,
     ) {
         $this->shippingMethodRepository = $shippingMethodRepository;
         $this->eligibilityChecker = $eligibilityChecker;

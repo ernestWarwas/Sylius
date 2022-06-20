@@ -45,7 +45,7 @@ final class SecurityController
         FormFactoryInterface $formFactory,
         object $templatingEngine,
         AuthorizationCheckerInterface $authorizationChecker,
-        RouterInterface $router
+        RouterInterface $router,
     ) {
         $this->authenticationUtils = $authenticationUtils;
         $this->formFactory = $formFactory;

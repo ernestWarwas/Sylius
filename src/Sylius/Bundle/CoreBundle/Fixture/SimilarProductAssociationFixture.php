@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sylius\Bundle\CoreBundle\Fixture;
 
-use Faker\Generator;
 use Faker\Factory;
+use Faker\Generator;
 use Sylius\Bundle\FixturesBundle\Fixture\AbstractFixture;
 use Sylius\Component\Core\Model\ProductInterface;
 use Sylius\Component\Core\Repository\ProductRepositoryInterface;
@@ -36,7 +36,7 @@ class SimilarProductAssociationFixture extends AbstractFixture
     public function __construct(
         AbstractResourceFixture $productAssociationTypeFixture,
         AbstractResourceFixture $productAssociationFixture,
-        ProductRepositoryInterface $productRepository
+        ProductRepositoryInterface $productRepository,
     ) {
         $this->productAssociationTypeFixture = $productAssociationTypeFixture;
         $this->productAssociationFixture = $productAssociationFixture;

@@ -30,7 +30,7 @@ final class ProductVariantNormalizer implements ContextAwareNormalizerInterface,
     public function __construct(
         ProductVariantPricesCalculatorInterface $priceCalculator,
         ChannelContextInterface $channelContext,
-        AvailabilityCheckerInterface $availabilityChecker
+        AvailabilityCheckerInterface $availabilityChecker,
     ) {
         $this->priceCalculator = $priceCalculator;
         $this->channelContext = $channelContext;

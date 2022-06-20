@@ -49,7 +49,7 @@ final class CustomerEmailUpdaterListener
         ChannelContextInterface $channelContext,
         EventDispatcherInterface $eventDispatcher,
         SessionInterface $session,
-        SectionProviderInterface $uriBasedSectionContext
+        SectionProviderInterface $uriBasedSectionContext,
     ) {
         $this->tokenGenerator = $tokenGenerator;
         $this->channelContext = $channelContext;

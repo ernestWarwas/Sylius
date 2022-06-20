@@ -24,7 +24,7 @@ class ProductFactory implements ProductFactoryInterface
 
     public function __construct(
         FactoryInterface $factory,
-        FactoryInterface $variantFactory
+        FactoryInterface $variantFactory,
     ) {
         $this->factory = $factory;
         $this->variantFactory = $variantFactory;

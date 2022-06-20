@@ -39,7 +39,7 @@ final class UploadAvatarImageAction
         FactoryInterface $avatarImageFactory,
         AvatarImageRepositoryInterface $avatarImageRepository,
         ImageUploaderInterface $imageUploader,
-        IriConverterInterface $iriConverter
+        IriConverterInterface $iriConverter,
     ) {
         $this->avatarImageFactory = $avatarImageFactory;
         $this->avatarImageRepository = $avatarImageRepository;

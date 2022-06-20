@@ -33,7 +33,7 @@ final class ShopCartBlamerListener
 
     public function __construct(
         CartContextInterface $cartContext,
-        SectionProviderInterface $uriBasedSectionContext
+        SectionProviderInterface $uriBasedSectionContext,
     ) {
         $this->cartContext = $cartContext;
         $this->uriBasedSectionContext = $uriBasedSectionContext;

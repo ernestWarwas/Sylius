@@ -62,7 +62,7 @@ final class PayumController
         ViewHandlerInterface $viewHandler,
         RouterInterface $router,
         GetStatusFactoryInterface $getStatusFactory,
-        ResolveNextRouteFactoryInterface $resolveNextRouteFactory
+        ResolveNextRouteFactoryInterface $resolveNextRouteFactory,
     ) {
         $this->payum = $payum;
         $this->orderRepository = $orderRepository;
@@ -148,7 +148,7 @@ final class PayumController
                 $redirectOptions['route']
                     ?? null,
                 $redirectOptions['parameters']
-                    ?? []
+                    ?? [],
             );
         } else {
             $token = $this->getTokenFactory()->createCaptureToken(
@@ -157,7 +157,7 @@ final class PayumController
                 $redirectOptions['route']
                     ?? null,
                 $redirectOptions['parameters']
-                    ?? []
+                    ?? [],
             );
         }
 

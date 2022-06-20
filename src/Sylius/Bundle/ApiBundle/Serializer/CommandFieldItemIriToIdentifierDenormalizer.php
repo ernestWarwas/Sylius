@@ -33,7 +33,7 @@ final class CommandFieldItemIriToIdentifierDenormalizer implements ContextAwareD
         DenormalizerInterface $objectNormalizer,
         ItemIriToIdentifierConverterInterface $itemIriToIdentifierConverter,
         CommandAwareInputDataTransformer $commandAwareInputDataTransformer,
-        CommandItemIriArgumentToIdentifierMapInterface $commandItemIriArgumentToIdentifierMap
+        CommandItemIriArgumentToIdentifierMapInterface $commandItemIriArgumentToIdentifierMap,
     ) {
         $this->objectNormalizer = $objectNormalizer;
         $this->itemIriToIdentifierConverter = $itemIriToIdentifierConverter;

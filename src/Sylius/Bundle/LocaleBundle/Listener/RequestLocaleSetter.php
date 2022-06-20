@@ -26,7 +26,7 @@ final class RequestLocaleSetter
 
     public function __construct(
         LocaleContextInterface $localeContext,
-        LocaleProviderInterface $localeProvider
+        LocaleProviderInterface $localeProvider,
     ) {
         $this->localeContext = $localeContext;
         $this->localeProvider = $localeProvider;

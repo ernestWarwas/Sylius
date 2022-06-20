@@ -35,7 +35,7 @@ final class UnitFixedDiscountPromotionActionCommand extends UnitDiscountPromotio
         FactoryInterface $adjustmentFactory,
         FilterInterface $priceRangeFilter,
         FilterInterface $taxonFilter,
-        FilterInterface $productFilter
+        FilterInterface $productFilter,
     ) {
         parent::__construct($adjustmentFactory);
 
@@ -62,7 +62,7 @@ final class UnitFixedDiscountPromotionActionCommand extends UnitDiscountPromotio
 
         $filteredItems = $this->priceRangeFilter->filter(
             $subject->getItems()->toArray(),
-            array_merge(['channel' => $subject->getChannel()], $configuration[$channelCode])
+            array_merge(['channel' => $subject->getChannel()], $configuration[$channelCode]),
         );
         $filteredItems = $this->taxonFilter->filter($filteredItems, $configuration[$channelCode]);
         $filteredItems = $this->productFilter->filter($filteredItems, $configuration[$channelCode]);
@@ -84,7 +84,7 @@ final class UnitFixedDiscountPromotionActionCommand extends UnitDiscountPromotio
             $this->addAdjustmentToUnit(
                 $unit,
                 min($unit->getTotal(), $amount),
-                $promotion
+                $promotion,
             );
         }
     }

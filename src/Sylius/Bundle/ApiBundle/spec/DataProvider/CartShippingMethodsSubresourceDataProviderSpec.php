@@ -34,14 +34,14 @@ final class CartShippingMethodsSubresourceDataProviderSpec extends ObjectBehavio
         ShipmentRepositoryInterface $shipmentRepository,
         ShippingMethodsResolverInterface $shippingMethodsResolver,
         ServiceRegistryInterface $calculators,
-        CartShippingMethodFactoryInterface $cartShippingMethodFactory
+        CartShippingMethodFactoryInterface $cartShippingMethodFactory,
     ): void {
         $this->beConstructedWith(
             $orderRepository,
             $shipmentRepository,
             $shippingMethodsResolver,
             $calculators,
-            $cartShippingMethodFactory
+            $cartShippingMethodFactory,
         );
     }
 
@@ -62,14 +62,14 @@ final class CartShippingMethodsSubresourceDataProviderSpec extends ObjectBehavio
             ->supports(
                 ShippingMethodInterface::class,
                 Request::METHOD_GET,
-                $context
+                $context,
             )
             ->shouldReturn(true)
         ;
     }
 
     function it_throws_an_exception_if_cart_does_not_exist(
-        OrderRepositoryInterface $orderRepository
+        OrderRepositoryInterface $orderRepository,
     ): void {
         $context['subresource_identifiers'] = ['tokenValue' => '666', 'shipments' => '999'];
 
@@ -89,7 +89,7 @@ final class CartShippingMethodsSubresourceDataProviderSpec extends ObjectBehavio
     function it_throws_an_exception_if_shipment_does_not_exist(
         OrderRepositoryInterface $orderRepository,
         ShipmentRepositoryInterface $shipmentRepository,
-        OrderInterface $cart
+        OrderInterface $cart,
     ): void {
         $context['subresource_identifiers'] = ['tokenValue' => '666', 'shipments' => '999'];
 
@@ -111,7 +111,7 @@ final class CartShippingMethodsSubresourceDataProviderSpec extends ObjectBehavio
         OrderRepositoryInterface $orderRepository,
         ShipmentRepositoryInterface $shipmentRepository,
         OrderInterface $cart,
-        ShipmentInterface $shipment
+        ShipmentInterface $shipment,
     ): void {
         $context['subresource_identifiers'] = ['tokenValue' => '666', 'shipments' => '999'];
 
@@ -135,7 +135,7 @@ final class CartShippingMethodsSubresourceDataProviderSpec extends ObjectBehavio
         OrderRepositoryInterface $orderRepository,
         ShipmentRepositoryInterface $shipmentRepository,
         OrderInterface $cart,
-        ShipmentInterface $shipment
+        ShipmentInterface $shipment,
     ): void {
         $context['subresource_identifiers'] = ['tokenValue' => '666', 'shipments' => '999'];
 
@@ -150,7 +150,7 @@ final class CartShippingMethodsSubresourceDataProviderSpec extends ObjectBehavio
                 ShippingMethodInterface::class,
                 [],
                 $context,
-                Request::METHOD_GET
+                Request::METHOD_GET,
             )
             ->shouldReturn([])
         ;
@@ -166,7 +166,7 @@ final class CartShippingMethodsSubresourceDataProviderSpec extends ObjectBehavio
         ShipmentInterface $shipment,
         ShippingMethodInterface $shippingMethod,
         CalculatorInterface $calculator,
-        CartShippingMethodInterface $cartShippingMethod
+        CartShippingMethodInterface $cartShippingMethod,
     ): void {
         $context['subresource_identifiers'] = ['tokenValue' => '666', 'shipments' => '999'];
 
@@ -196,7 +196,7 @@ final class CartShippingMethodsSubresourceDataProviderSpec extends ObjectBehavio
                 ShippingMethodInterface::class,
                 [],
                 $context,
-                Request::METHOD_GET
+                Request::METHOD_GET,
             )
             ->shouldReturn([$cartShippingMethod])
         ;

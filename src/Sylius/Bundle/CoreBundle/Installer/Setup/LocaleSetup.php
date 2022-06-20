@@ -70,7 +70,7 @@ final class LocaleSetup implements LocaleSetupInterface
 
         while (null === $name) {
             $output->writeln(
-                sprintf('<comment>Language with code <info>%s</info> could not be resolved.</comment>', $code)
+                sprintf('<comment>Language with code <info>%s</info> could not be resolved.</comment>', $code),
             );
 
             $code = $this->getNewLanguageCode($input, $output, $questionHelper);

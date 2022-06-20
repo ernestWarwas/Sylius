@@ -25,8 +25,8 @@ final class SprintfResponseEscaper
             str_replace(
                 '%',
                 '%%',
-                $response->getContent()
-            )
+                $response->getContent(),
+            ),
         );
     }
 }

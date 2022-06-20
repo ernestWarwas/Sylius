@@ -31,7 +31,7 @@ final class StatisticsController
      */
     public function __construct(
         object $templatingEngine,
-        StatisticsDataProviderInterface $statisticsDataProvider
+        StatisticsDataProviderInterface $statisticsDataProvider,
     ) {
         $this->templatingEngine = $templatingEngine;
         $this->statisticsDataProvider = $statisticsDataProvider;
@@ -45,8 +45,8 @@ final class StatisticsController
                 $channel,
                 (new \DateTime('first day of january this year')),
                 (new \DateTime('first day of january next year')),
-                'month'
-            )
+                'month',
+            ),
         ));
     }
 }

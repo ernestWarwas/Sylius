@@ -35,7 +35,7 @@ final class OrderPaymentProvider implements OrderPaymentProviderInterface
     public function __construct(
         DefaultPaymentMethodResolverInterface $defaultPaymentMethodResolver,
         PaymentFactoryInterface $paymentFactory,
-        StateMachineFactoryInterface $stateMachineFactory
+        StateMachineFactoryInterface $stateMachineFactory,
     ) {
         $this->defaultPaymentMethodResolver = $defaultPaymentMethodResolver;
         $this->paymentFactory = $paymentFactory;

@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace spec\Sylius\Bundle\ApiBundle\EventSubscriber;
 
 use PhpSpec\ObjectBehavior;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -30,7 +29,7 @@ final class KernelRequestEventSubscriberSpec extends ObjectBehavior
     function it_does_nothing_if_api_is_enabled(
         RequestEvent $event,
         Request $request,
-        HttpKernelInterface $kernel
+        HttpKernelInterface $kernel,
     ): void {
         $event->getRequest()->willReturn($request);
 
@@ -39,14 +38,14 @@ final class KernelRequestEventSubscriberSpec extends ObjectBehavior
         $this->validateApi(new RequestEvent(
             $kernel->getWrappedObject(),
             $request->getWrappedObject(),
-            HttpKernelInterface::MASTER_REQUEST
+            HttpKernelInterface::MASTER_REQUEST,
         ));
     }
 
     function it_throws_not_found_exception_if_api_is_disabled(
         RequestEvent $event,
         Request $request,
-        HttpKernelInterface $kernel
+        HttpKernelInterface $kernel,
     ): void {
         $this->beConstructedWith(false, '/api/v2');
 
@@ -62,16 +61,17 @@ final class KernelRequestEventSubscriberSpec extends ObjectBehavior
                     new RequestEvent(
                         $kernel->getWrappedObject(),
                         $request->getWrappedObject(),
-                        HttpKernelInterface::MASTER_REQUEST
-                    )
-                ]
-            );
+                        HttpKernelInterface::MASTER_REQUEST,
+                    ),
+                ],
+            )
+        ;
     }
 
     function it_does_nothing_for_non_api_endpoints_when_api_is_disabled(
         RequestEvent $event,
         Request $request,
-        HttpKernelInterface $kernel
+        HttpKernelInterface $kernel,
     ): void {
         $this->beConstructedWith(false, '/api/v2');
 
@@ -82,7 +82,7 @@ final class KernelRequestEventSubscriberSpec extends ObjectBehavior
         $this->validateApi(new RequestEvent(
             $kernel->getWrappedObject(),
             $request->getWrappedObject(),
-            HttpKernelInterface::MASTER_REQUEST
+            HttpKernelInterface::MASTER_REQUEST,
         ));
     }
 }
