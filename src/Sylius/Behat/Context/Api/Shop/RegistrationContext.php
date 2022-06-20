@@ -32,7 +32,7 @@ final class RegistrationContext implements Context
         private LoginContext $loginContext,
         private SharedStorageInterface $sharedStorage,
         private ResponseCheckerInterface $responseChecker,
-        private string $apiUrlPrefix
+        private string $apiUrlPrefix,
     ) {
     }
 
@@ -112,7 +112,7 @@ final class RegistrationContext implements Context
             [],
             [],
             ['HTTP_ACCEPT' => 'application/ld+json', 'CONTENT_TYPE' => 'application/merge-patch+json'],
-            json_encode([], \JSON_THROW_ON_ERROR)
+            json_encode([], \JSON_THROW_ON_ERROR),
         );
     }
 
@@ -146,7 +146,7 @@ final class RegistrationContext implements Context
             [],
             [],
             ['HTTP_ACCEPT' => 'application/ld+json', 'CONTENT_TYPE' => 'application/ld+json'],
-            json_encode($this->content, \JSON_THROW_ON_ERROR)
+            json_encode($this->content, \JSON_THROW_ON_ERROR),
         );
         $this->content = [];
     }
@@ -193,7 +193,7 @@ final class RegistrationContext implements Context
 
         Assert::same(
             $content['message'],
-            'Request does not have the following required fields specified: ' . implode(', ', $fields) . '.'
+            'Request does not have the following required fields specified: ' . implode(', ', $fields) . '.',
         );
         Assert::same($content['code'], 400);
     }
@@ -265,7 +265,7 @@ final class RegistrationContext implements Context
         Assert::keyExists($decodedResponse, 'violations');
         Assert::same(
             $decodedResponse['violations'][0],
-            ['propertyPath' => $path, 'message' => $message, 'code' => $decodedResponse['violations'][0]['code']]
+            ['propertyPath' => $path, 'message' => $message, 'code' => $decodedResponse['violations'][0]['code']],
         );
     }
 
