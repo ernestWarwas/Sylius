@@ -17,6 +17,7 @@ use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Length;
 
 final class CatalogPromotionTranslationType extends AbstractResourceType
 {
@@ -26,6 +27,12 @@ final class CatalogPromotionTranslationType extends AbstractResourceType
             ->add('label', TextType::class, [
                 'label' => 'sylius.form.catalog_promotion.label',
                 'required' => false,
+                'constraints' => [
+                    new Length([
+                        'max' => 255,
+                        'groups' => ['sylius'],
+                    ]),
+                ],
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'sylius.form.catalog_promotion.description',
